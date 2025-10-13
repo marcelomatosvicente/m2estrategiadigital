@@ -116,6 +116,11 @@ nav {
   padding: 0.5rem 0;
 }
 
+/* Hide the duplicate theme toggle next to the logo (we only keep the one in nav-tools) */
+nav > .theme-toggle {
+  display: none;
+}
+
 /* CTA button that appears in header when scrolled */
 .nav-cta {
   /* Push CTA to the far right; it will occupy its own space */
@@ -780,12 +785,29 @@ body.light-theme .theme-toggle .icon-moon { display: none; }
  */
 /* Mobile header adjustments: remove blur and use solid backgrounds on narrow screens */
 @media (max-width: 768px) {
+  /* Hide the desktop CTA button in the header when on mobile.  
+     A CTA will be shown inside the mobile navigation instead. */
+  .nav-cta {
+    display: none !important;
+  }
+
+  /* Style the CTA inside the mobile navigation menu */
+  .nav-menu-cta a {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+  }
   /* Eliminate the backdrop blur on small screens so hero gradients don't leak through
      and set a solid background colour appropriate to the current theme. This avoids
      the light band that appears behind the header on mobile. */
   header {
     backdrop-filter: none;
     background: var(--bg-dark);
+  }
+  /* Ensure nav-tools floats to the right when CTA is hidden on mobile */
+  .nav-tools {
+    margin-left: auto;
   }
   body.light-theme header {
     background: var(--bg-light);
