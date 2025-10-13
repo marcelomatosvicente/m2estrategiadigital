@@ -127,6 +127,15 @@ header.scrolled .nav-cta {
   display: inline-flex;
 }
 
+/* Spacing for the header tools (theme toggle and burger). Without this
+   margin/gap the CTA button touches the icons on narrow screens. */
+.nav-tools {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  gap: 0.75rem;
+}
+
 /* Sticky bottom CTA bar */
 .sticky-cta-bar {
   position: fixed;
@@ -760,6 +769,26 @@ body.light-theme .theme-toggle .icon-moon { display: none; }
   /* Light theme background for mobile menu */
   body.light-theme .nav-menu {
     background: rgba(245, 245, 247, 0.95);
+  }
+}
+
+/* Improve header appearance on small screens
+ * On very narrow viewports the hero background gradient can be visible
+ * behind the transparent header, creating an unwanted light band. Fix by
+ * giving the header a solid backdrop and removing the blur effect on
+ * small screens.
+ */
+/* Mobile header adjustments: remove blur and use solid backgrounds on narrow screens */
+@media (max-width: 768px) {
+  /* Eliminate the backdrop blur on small screens so hero gradients don't leak through
+     and set a solid background colour appropriate to the current theme. This avoids
+     the light band that appears behind the header on mobile. */
+  header {
+    backdrop-filter: none;
+    background: var(--bg-dark);
+  }
+  body.light-theme header {
+    background: var(--bg-light);
   }
 }
 
