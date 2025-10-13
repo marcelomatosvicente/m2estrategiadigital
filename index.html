@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="M2 Estratégia Digital – consultoria de marketing digital que gera resultados reais. Descubra como turbinar seu negócio com estratégias personalizadas.">
+  <title>M2 Estratégia Digital – Marketing e Consultoria</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- AOS animations library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.css">
+</head>
+<body>
+  <!-- Skip link para pular diretamente ao conteúdo principal -->
+  <a href="#services" class="skip-link">Pular para o conteúdo</a>
+  <!-- Scroll progress bar -->
+  <div class="progress-bar"></div>
+  <!-- Header and navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">
+          <img src="assets/img/logo.png" alt="Logotipo M2 Estratégia">
+          <span>M2 Estratégia</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#method">Método</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contato</a></li>
+          <li><a href="#newsletter">E‑book</a></li>
+        </ul>
+        <!-- CTA that appears when the user scrolls down -->
+        <a href="#" class="btn btn-primary pulse nav-cta open-quiz">Diagnóstico gratuito</a>
+        <div class="nav-tools">
+          <button class="theme-toggle" aria-label="Alternar tema">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 176a80 80 0 1 0 0 160 80 80 0 1 0 0-160zm0-176c17.7 0 32 14.3 32 32V64c0 17.7-14.3 32-32 32s-32-14.3-32-32V32c0-17.7 14.3-32 32-32zm0 448c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V480c0-17.7 14.3-32 32-32zm256-224c0 17.7-14.3 32-32 32H448c-17.7 0-32-14.3-32-32s14.3-32 32-32h32c17.7 0 32 14.3 32 32zm-448 0c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h32c17.7 0 32 14.3 32 32zm330.1 150.1c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0l-22.6-22.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l22.6 22.6zm-272.2 0c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-22.6 22.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l22.6-22.6zm272.2-272.2l-22.6 22.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l22.6-22.6c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3zm-272.2 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l22.6 22.6c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L111.9 53.9z"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M279.135 512c78.52 0 150.056-34.316 199.287-88.754c6.958-7.41-.623-18.725-9.96-17.247C310.19 418.87 192 292.664 192 144.001c0-52.359 13.72-101.443 37.844-144.001c4.411-7.82-2.326-17.27-11.05-15.128C86.017 15.838 0 111.753 0 223.999C0 370.696 126.304 512 279.135 512z"/></svg>
+          </button>
+          <button class="mobile-toggle" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <h1 class="hero-heading">
+        <span id="typed-text"></span><span class="cursor">|</span>
+      </h1>
+      <p>Somos especialistas em marketing digital orientado por dados. Conectamos sua marca ao público certo e ajudamos a aumentar suas vendas.</p>
+      <div class="buttons">
+        <a href="#" class="btn btn-primary open-quiz">
+          <!-- Comments/diagnostic icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><path d="M208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 38.6 14.7 74.3 39.6 103.4c-3.5 9.4-8.7 17.7-14.2 24.7c-4.8 6.2-9.7 11-13.3 14.3c-1.8 1.6-3.3 2.9-4.3 3.7c-.5 .4-.9 .7-1.1 .8l-.2 .2s0 0 0 0s0 0 0 0C1 327.2-1.4 334.4 .8 340.9S9.1 352 16 352c21.8 0 43.8-5.6 62.1-12.5c9.2-3.5 17.8-7.4 25.2-11.4C134.1 343.3 169.8 352 208 352zM448 176c0 112.3-99.1 196.9-216.5 207C255.8 457.4 336.4 512 432 512c38.2 0 73.9-8.7 104.7-23.9c7.5 4 16 7.9 25.2 11.4c18.3 6.9 40.3 12.5 62.1 12.5c6.9 0 13.1-4.5 15.2-11.1c2.1-6.6-.2-13.8-5.8-17.9c0 0 0 0 0 0s0 0 0 0l-.2-.2c-.2-.2-.6-.4-1.1-.8c-1-.8-2.5-2-4.3-3.7c-3.6-3.3-8.5-8.1-13.3-14.3c-5.5-7-10.7-15.4-14.2-24.7c24.9-29 39.6-64.7 39.6-103.4c0-92.8-84.9-168.9-192.6-175.5c.4 5.1 .6 10.3 .6 15.5z"/></svg>
+          <span>Quero meu diagnóstico</span>
+        </a>
+        <a href="#services" class="btn btn-outline">
+          <!-- Briefcase/services icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M184 48l144 0c4.4 0 8 3.6 8 8l0 40L176 96l0-40c0-4.4 3.6-8 8-8zm-56 8l0 40L64 96C28.7 96 0 124.7 0 160l0 96 192 0 128 0 192 0 0-96c0-35.3-28.7-64-64-64l-64 0 0-40c0-30.9-25.1-56-56-56L184 0c-30.9 0-56 25.1-56 56zM512 288l-192 0 0 32c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-32L0 288 0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-128z"/></svg>
+          <span>Conheça nossos serviços</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company section (Sobre) -->
+  <section class="company-section" id="sobre">
+    <div class="container">
+      <h2 class="section-title">Sobre a M² Estratégia Digital</h2>
+      <p class="section-subtitle">Consultoria full‑stack em estratégia, marketing e tecnologia para transformar a presença digital de pequenas e médias empresas em resultados mensuráveis e sustentáveis.</p>
+      <div class="company-grid">
+        <div class="company-text">
+          <p>Somos uma consultoria que combina diagnóstico aprofundado, criatividade e tecnologia para construir sistemas de crescimento digital. Nossa abordagem full‑stack integra branding, mídia paga, tecnologia, automação e dados para proporcionar clareza estratégica e resultados reais.</p>
+          <p>Com metodologia própria, “Engenharia de Crescimento Digital”, aliamos análises de mercado, processos automatizados e execução humanizada para entregar soluções personalizadas que evoluem com o seu negócio.</p>
+          <a href="#contact" class="btn btn-primary">Falar com um especialista</a>
+        </div>
+        <div class="company-image">
+          <picture>
+            <source srcset="assets/img/marketing-illustration.webp" type="image/webp">
+            <img src="assets/img/marketing-illustration.png" alt="Consultoria digital" class="company-illustration" loading="lazy">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services section -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <h2>Nossos Serviços</h2>
+      <!-- Métricas de credibilidade -->
+      <ul class="service-stats">
+        <li><strong>120+</strong> campanhas otimizadas</li>
+        <li><strong>3.8x</strong> ROI médio</li>
+        <li><strong>99%</strong> satisfação dos clientes</li>
+      </ul>
+
+      <!-- ROI call-to-action button -->
+      <div class="roi-call" style="margin: 1.5rem 0; text-align:center;">
+        <a href="#" class="btn btn-primary open-roi">Calcular meu ROI</a>
+      </div>
+      <div class="bento-grid">
+        <!-- Serviço 1: Estratégia Digital Integrada -->
+        <div class="bento-item" data-aos="fade-up">
+          <div class="bento-icon" aria-hidden="true">
+            <!-- Compass/Search icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M505 442.7L405.3 343c28.4-34.9 45.7-79.5 45.7-128.3C451 96.5 354.5 0 231 0S11 96.5 11 214.7S107.5 429.3 231 429.3c48.9 0 93.4-17.3 128.3-45.7l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l12.1-12.1c9.5-9.4 9.5-24.6 0-34.2zM231 383.3c-93.2 0-168.7-75.5-168.7-168.7S137.8 45.9 231 45.9S399.7 121.4 399.7 214.7S324.2 383.3 231 383.3z"/></svg>
+          </div>
+          <h3 class="bento-title">Estratégia digital integrada</h3>
+          <p class="bento-text">Diagnóstico completo da marca, definição de persona e jornada, e planejamento de ações digitais.</p>
+          <ul class="bento-list">
+            <li>Blueprint estratégico personalizado</li>
+            <li>Cronograma de execução</li>
+            <li>Mapa de conteúdo e funil de vendas</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-card">Quero esse serviço</a>
+        </div>
+        <!-- Serviço 2: Branding & Identidade Visual -->
+        <div class="bento-item" data-aos="fade-up">
+          <div class="bento-icon" aria-hidden="true">
+            <!-- Palette/paint icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M256 8C119 8 8 119 8 256c0 66.3 26.3 126.4 68.9 170.3c20.6 21.1 57.3 27.1 85.3 19.4c9.7-2.7 16.2-11.2 16.2-21.2c0-11.8-9.6-21.4-21.4-21.4c-5.2 0-10 1.9-13.7 5.1c-7.4 6.7-16.6 10.4-26.5 10.4c-12.7 0-24.5-5.9-32.7-16.1C47 370.7 32 315.5 32 256C32 137.5 137.5 32 256 32s224 105.5 224 224c0 20.4-14.6 40-34.7 47.5c-9.6 3.5-15.3 13.6-14.3 24.2c1.2 12.5 2 25.4 2 38.8c0 57.9-18 103.5-58.1 137.2c-7.3 6.2-15.6 11.9-24.5 17c-9.7 5.5-15.4 16.2-14.1 27.4c1.5 12.8 10.7 22.7 23.5 24.1c70.5-21 123.4-95.1 123.4-180.1C504 119 393 8 256 8z"/></svg>
+          </div>
+          <h3 class="bento-title">Branding & identidade visual</h3>
+          <p class="bento-text">Criação de marcas fortes e consistentes que comunicam autoridade e geram conexão.</p>
+          <ul class="bento-list">
+            <li>Naming, logotipo e manual de marca</li>
+            <li>Kit de redes sociais</li>
+            <li>Diretrizes de comunicação e tom de voz</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-card">Quero esse serviço</a>
+        </div>
+        <!-- Serviço 3: Social Media & Tráfego Pago -->
+        <div class="bento-item" data-aos="fade-up">
+          <div class="bento-icon" aria-hidden="true">
+            <!-- Social/share icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M448 224c0-19.8-20-34-37.8-26.4l-110.3 46.1c-2.3-1.1-4.7-2.1-7.2-3.1l39.5-126.3c7.8-25.1-12.9-49.3-38.7-49.3H216c-25.8 0-46.5 24.2-38.7 49.3l39.5 126.3c-2.5 1-4.9 2-7.2 3.1L99.8 197.6C82 190 62 204.2 62 224c0 11.3 7.4 21.2 18.3 23.8l110.3 46.1c-1.1 7.8-1.1 15.9 0 23.7L80.3 363.7C69.4 366.3 62 376.3 62 387.6c0 19.8 20 34 37.8 26.4l110.3-46.1c2.3 1.1 4.7 2.1 7.2 3.1L177.8 496c-7.8 25.1 12.9 49.3 38.7 49.3h85.5c25.8 0 46.5-24.2 38.7-49.3L300.6 341.2c2.5-1 4.9-2 7.2-3.1l110.3 46.1c17.8 7.6 37.8-6.6 37.8-26.4c0-11.3-7.4-21.2-18.3-23.8l-110.3-46.1c1.1-7.8 1.1-15.9 0-23.7l110.3-46.1C440.6 245.2 448 235.3 448 224z"/></svg>
+          </div>
+          <h3 class="bento-title">Social media & tráfego pago</h3>
+          <p class="bento-text">Gestão de redes sociais e campanhas pagas (Meta Ads, Google Ads) com foco em conversão.</p>
+          <ul class="bento-list">
+            <li>Planejamento de conteúdo mensal</li>
+            <li>Posts, vídeos e stories otimizados</li>
+            <li>Segmentação e relatórios de performance</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-card">Quero esse serviço</a>
+        </div>
+        <!-- Serviço 4: Desenvolvimento Web -->
+        <div class="bento-item" data-aos="fade-up">
+          <div class="bento-icon" aria-hidden="true">
+            <!-- Laptop/code icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><path d="M0 416C0 442.5 21.5 464 48 464H592c26.5 0 48-21.5 48-48V96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96V416zM592 64c17.7 0 32 14.3 32 32v304H16V96c0-17.7 14.3-32 32-32H592zM280 352c13.3 0 24-10.7 24-24V152c0-13.3-10.7-24-24-24s-24 10.7-24 24V328c0 13.3 10.7 24 24 24zm152 0c13.3 0 24-10.7 24-24V152c0-13.3-10.7-24-24-24s-24 10.7-24 24V328c0 13.3 10.7 24 24 24z"/></svg>
+          </div>
+          <h3 class="bento-title">Desenvolvimento web</h3>
+          <p class="bento-text">Sites institucionais, landing pages e e‑commerces otimizados para conversão e SEO.</p>
+          <ul class="bento-list">
+            <li>Site responsivo e otimizado</li>
+            <li>Integração com WhatsApp, CRM e GA4</li>
+            <li>Hospedagem leve e SSL configurado</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-card">Quero esse serviço</a>
+        </div>
+        <!-- Serviço 5: Automação & IA -->
+        <div class="bento-item" data-aos="fade-up">
+          <div class="bento-icon" aria-hidden="true">
+            <!-- Gear/automation icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M487.4 315.7l-42.3-24.5c2.7-13.1 4.1-26.5 4.1-40.2s-1.4-27.1-4.1-40.2l42.3-24.5c15.1-8.7 20.3-28.1 11.7-43.1l-43.1-74.6c-8.7-15.1-28.1-20.3-43.1-11.7l-42.3 24.5c-20.9-17.7-45-31.9-71.5-41.1V24c0-17.1-13.9-31-31-31H208c-17.1 0-31 13.9-31 31v48.9c-26.5 9.2-50.6 23.4-71.5 41.1l-42.3-24.5c-15.1-8.7-34.5-3.4-43.1 11.7L7 167c-8.7 15.1-3.4 34.5 11.7 43.1l42.3 24.5C58.3 246.9 56.9 260.3 56.9 274s1.4 27.1 4.1 40.2L18.7 338.8c-15.1 8.7-20.3 28.1-11.7 43.1l43.1 74.6c8.7 15.1 28.1 20.3 43.1 11.7l42.3-24.5c20.9 17.7 45 31.9 71.5 41.1V488c0 17.1 13.9 31 31 31h74c17.1 0 31-13.9 31-31v-48.9c26.5-9.2 50.6-23.4 71.5-41.1l42.3 24.5c15.1 8.7 34.5 3.4 43.1-11.7l43.1-74.6c8.7-15.1 3.4-34.5-11.7-43.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80s80 35.9 80 80s-35.9 80-80 80z"/></svg>
+          </div>
+          <h3 class="bento-title">Automação & IA</h3>
+          <p class="bento-text">Automatizamos processos com n8n e IA, integrando CRMs e fluxos de atendimento e marketing.</p>
+          <ul class="bento-list">
+            <li>Fluxos de automação integrados</li>
+            <li>Dashboard de acompanhamento em tempo real</li>
+            <li>Redução de custos e erros</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-card">Quero esse serviço</a>
+        </div>
+        <!-- Serviço 6: BI & Otimização de Resultados -->
+        <div class="bento-item" data-aos="fade-up">
+          <div class="bento-icon" aria-hidden="true">
+            <!-- Analytics/chart icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M500 0H12C5.4 0 0 5.4 0 12v488c0 6.6 5.4 12 12 12h488c6.6 0 12-5.4 12-12V12c0-6.6-5.4-12-12-12zM464 464H48V48h416v416zM384 256c0 8.8-7.2 16-16 16H304v80c0 8.8-7.2 16-16 16h-64c-8.8 0-16-7.2-16-16V272H144c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16h64V96c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16v80h64c8.8 0 16 7.2 16 16v64z"/></svg>
+          </div>
+          <h3 class="bento-title">BI & otimização de resultados</h3>
+          <p class="bento-text">Painéis de performance e insights para decisões assertivas e melhorias contínuas.</p>
+          <ul class="bento-list">
+            <li>Dashboards personalizados com KPIs</li>
+            <li>Insights estratégicos e relatórios semanais</li>
+            <li>Testes A/B e otimizações de CRO</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-card">Quero esse serviço</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials / Results section -->
+  <section class="testimonials-section" id="cases">
+    <div class="container">
+      <h2>Resultados que falam por si</h2>
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card bento-item" data-aos="fade-up" tabindex="0" data-case="1">
+          <div class="card-inner">
+            <div class="front">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                  <img src="assets/img/case1.png" alt="Gráfico de barras e pessoa feliz" loading="lazy">
+                </div>
+                <div class="testimonial-info">
+                  <h4>Rafael Silva</h4>
+                  <p class="testimonial-role">CEO, TechNova</p>
+                </div>
+              </div>
+              <p class="testimonial-quote">“A M2 Estratégia triplicou nosso ROI em apenas 6 meses e nos ajudou a crescer de forma sustentável.”</p>
+            </div>
+            <div class="back">
+              <h4>Desafio</h4>
+              <p>Escalar vendas e aumentar o ROI sem elevar o investimento em marketing.</p>
+              <h4>Solução</h4>
+              <p>Campanhas de anúncios altamente segmentadas e automação do funil de vendas.</p>
+              <h4>Resultados</h4>
+              <p>+200% em leads qualificados e ROI 3,5x maior em 6 meses.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card bento-item" data-aos="fade-up" tabindex="0" data-case="2">
+          <div class="card-inner">
+            <div class="front">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                  <img src="assets/img/case2.png" alt="Seta ascendente e pessoa feliz" loading="lazy">
+                </div>
+                <div class="testimonial-info">
+                  <h4>Marina Oliveira</h4>
+                  <p class="testimonial-role">Diretora de Marketing, Loja X</p>
+                </div>
+              </div>
+              <p class="testimonial-quote">“Graças às campanhas inteligentes, dobramos nossa base de clientes sem aumentar o investimento.”</p>
+            </div>
+            <div class="back">
+              <h4>Desafio</h4>
+              <p>Dobrar a base de clientes mantendo o mesmo orçamento de mídia.</p>
+              <h4>Solução</h4>
+              <p>Otimização das campanhas de tráfego pago e conteúdo focado em conversão.</p>
+              <h4>Resultados</h4>
+              <p>Base de clientes duplicada e redução no custo por aquisição.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card bento-item" data-aos="fade-up" tabindex="0" data-case="3">
+          <div class="card-inner">
+            <div class="front">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                  <img src="assets/img/case3.png" alt="Rede de conexões e pessoa feliz" loading="lazy">
+                </div>
+                <div class="testimonial-info">
+                  <h4>Carlos Santos</h4>
+                  <p class="testimonial-role">Fundador, StartApp</p>
+                </div>
+              </div>
+              <p class="testimonial-quote">“O time da M2 otimiza cada detalhe, sempre com atenção personalizada e resultados mensuráveis.”</p>
+            </div>
+            <div class="back">
+              <h4>Desafio</h4>
+              <p>Lançar um novo aplicativo e conquistar tração no mercado competitivo.</p>
+              <h4>Solução</h4>
+              <p>Implementação de marketing 360°, branding forte e automação de aquisição.</p>
+              <h4>Resultados</h4>
+              <p>+400% de downloads e alto engajamento em 3 meses.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About/Value Proposition section -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <h2>Por que escolher a M2?</h2>
+      <p>Na M2 Estratégia, acreditamos que cada negócio é único. Combinamos experiência, criatividade e análise de dados para entregar estratégias sob medida que geram resultados reais. Descubra alguns diferenciais que nos tornam a escolha certa para o seu crescimento.</p>
+      <div class="about-grid">
+        <div class="about-item">
+          <h3>Especialistas em dados</h3>
+          <p>Nossa equipe domina ferramentas analíticas para entender a jornada do seu cliente e otimizar cada investimento.</p>
+        </div>
+        <div class="about-item">
+          <h3>Atendimento humano</h3>
+          <p>Priorizamos o relacionamento. Você terá um consultor dedicado e suporte contínuo para ajustar as estratégias conforme sua necessidade.</p>
+        </div>
+        <div class="about-item">
+          <h3>Resultados mensuráveis</h3>
+          <p>Acreditamos em transparência. Relatórios claros e metas definidas permitem acompanhar a evolução do seu negócio em tempo real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team section -->
+  <section class="team-section" id="team">
+    <div class="container">
+      <h2>Conheça nosso time</h2>
+      <div class="team-grid">
+        <!-- Team member 1 -->
+        <div class="team-member bento-item" data-aos="fade-up">
+          <div class="team-photo">
+            <!-- Atualizamos as fotos da equipe para ilustrações de pessoas felizes trabalhando -->
+            <!-- Atualizamos as fotos da equipe para imagens mais profissionais que inspiram confiança -->
+            <img src="assets/img/team1_final.png" alt="Consultora de estratégia confiante e profissional" loading="lazy">
+          </div>
+          <h4>Mariana Ferreira</h4>
+          <p class="team-role">Consultora de Estratégia</p>
+          <p class="team-bio">Especialista em dados e análise de mercado.</p>
+        </div>
+        <!-- Team member 2 -->
+        <div class="team-member bento-item" data-aos="fade-up">
+          <div class="team-photo">
+            <img src="assets/img/team2_final.png" alt="Head de criação confiante e criativo" loading="lazy">
+          </div>
+          <h4>Lucas Costa</h4>
+          <p class="team-role">Head de Criação</p>
+          <p class="team-bio">Paixão por storytelling e design que converte.</p>
+        </div>
+        <!-- Team member 3 -->
+        <div class="team-member bento-item" data-aos="fade-up">
+          <div class="team-photo">
+            <img src="assets/img/team3_final.png" alt="Gerente de performance confiante e amigável" loading="lazy">
+          </div>
+          <h4>Ana Souza</h4>
+          <p class="team-role">Gerente de Performance</p>
+          <p class="team-bio">Focada em ROI e otimização contínua.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog & Insights section -->
+  
+  <!-- Method Section -->
+  <section class="method-section" id="method">
+    <div class="container">
+      <h2 class="section-title">Como trabalhamos</h2>
+      <p class="section-subtitle">Nosso processo validado combina diagnóstico, planejamento, execução e otimização contínua.</p>
+      <div class="bento-grid">
+        <div class="bento-item" data-aos="fade-up">
+          <div class="bento-icon" aria-hidden="true">
+            <!-- Search/diagnostic icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M505 442.7L405.3 343c28.4-34.9 45.7-79.5 45.7-128.3C451 96.5 354.5 0 231 0S11 96.5 11 214.7S107.5 429.3 231 429.3c48.9 0 93.4-17.3 128.3-45.7l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l12.1-12.1c9.5-9.4 9.5-24.6 0-34.2zM231 383.3c-93.2 0-168.7-75.5-168.7-168.7S137.8 45.9 231 45.9S399.7 121.4 399.7 214.7S324.2 383.3 231 383.3z"/></svg>
+          </div>
+          <h3 class="bento-title">Diagnóstico estratégico</h3>
+          <p class="bento-text">Analisamos profundamente seus canais, marca e comunicação para identificar oportunidades de crescimento.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <div class="bento-icon" aria-hidden="true">
+            <!-- Blueprint / plan icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M128 0c-17.7 0-32 14.3-32 32V64H64C46.3 64 32 78.3 32 96v352c0 17.7 14.3 32 32 32h352c17.7 0 32-14.3 32-32V96c0-17.7-14.3-32-32-32H352V32c0-17.7-14.3-32-32-32H128zm160 64H224V32h64v32zm32 64H96V96h224v32zm64 0h32v224h-32V128zm-64 0v192H96V128h224zm32 224h32v64H128v-64h224z"/></svg>
+          </div>
+          <h3 class="bento-title">Blueprint de crescimento</h3>
+          <p class="bento-text">Desenhamos o seu sistema digital integrando branding, conteúdo, mídia, automação e funis de vendas.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <div class="bento-icon" aria-hidden="true">
+            <!-- Rocket icon for execution -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7-20.5 11.8-33.8L24 288c-8.6 0-16.6-4.6-20.9-12.1s-4.2-16.7 .2-24.1l52.5-88.5c13-21.9 36.5-35.3 61.9-35.3l82.3 0c2.4-4 4.8-7.7 7.2-11.3C289.1-4.1 411.1-8.1 483.9 5.3c11.6 2.1 20.6 11.2 22.8 22.8c13.4 72.9 9.3 194.8-111.4 276.7c-3.5 2.4-7.3 4.8-11.3 7.2l0 82.3c0 25.4-13.4 49-35.3 61.9l-88.5 52.5c-7.4 4.4-16.6 4.5-24.1 .2s-12.1-12.2-12.1-20.9l0-107.2c-14.1 4.9-26.4 8.9-35.7 11.9c-11.2 3.6-23.4 .5-31.8-7.8zM384 168a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></svg>
+          </div>
+          <h3 class="bento-title">Execução inteligente</h3>
+          <p class="bento-text">Implementamos com agilidade e criatividade, entregando em sprints quinzenais e evolução contínua.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <div class="bento-icon" aria-hidden="true">
+            <!-- Chart/monitor icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M500 0H12C5.4 0 0 5.4 0 12v488c0 6.6 5.4 12 12 12h488c6.6 0 12-5.4 12-12V12c0-6.6-5.4-12-12-12zM464 464H48V48h416v416zM384 256c0 8.8-7.2 16-16 16H304v80c0 8.8-7.2 16-16 16h-64c-8.8 0-16-7.2-16-16V272H144c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16h64V96c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16v80h64c8.8 0 16 7.2 16 16v64z"/></svg>
+          </div>
+          <h3 class="bento-title">Monitoramento & otimização</h3>
+          <p class="bento-text">Acompanhamos resultados com dashboards, relatórios e ajustes em tempo real para maximizar o ROI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Knowledge & Innovation Section -->
+  <section class="knowledge-section" id="knowledge">
+    <div class="container">
+      <h2 class="section-title">Conhecimento & Inovação</h2>
+      <p class="section-subtitle">Estamos sempre à frente com pesquisas, testes e tecnologia para entregar as melhores soluções.</p>
+      <div class="features-grid">
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Estudos constantes</h3>
+          <p class="bento-text">Analisamos tendências de mercado, algoritmos e estratégias avançadas, como nosso guia de engajamento para Instagram.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Testes e benchmarks</h3>
+          <p class="bento-text">Realizamos experimentos internos e benchmarks com clientes de diversos segmentos para validar e aprimorar metodologias.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">IA & automação</h3>
+          <p class="bento-text">Utilizamos inteligência artificial e automação para análises preditivas, insights comportamentais e processos eficientes.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Treinamento contínuo</h3>
+          <p class="bento-text">Nossa equipe se atualiza constantemente em plataformas como Meta Business Suite, GA4, n8n e Data Studio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables Section -->
+  <section class="deliverables-section" id="deliverables">
+    <div class="container">
+      <h2 class="section-title">O que entregamos</h2>
+      <p class="section-subtitle">Resultados tangíveis que fazem a diferença no seu negócio.</p>
+      <div class="features-grid">
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Clareza estratégica</h3>
+          <p class="bento-text">Posicionamento sólido e visão de crescimento personalizada.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Presença digital profissional</h3>
+          <p class="bento-text">Marca coerente, ativa e consistente em todos os canais digitais.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Processos automatizados</h3>
+          <p class="bento-text">Fluxos eficientes que reduzem custos e tempo, integrando plataformas e equipes.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Resultados reais</h3>
+          <p class="bento-text">Aumento de leads, vendas e reconhecimento de marca com foco em ROI.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Mensuração contínua</h3>
+          <p class="bento-text">Dashboards e relatórios que demonstram o ROI em números, facilitando decisões.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Differentials Section -->
+  <section class="differentials-section" id="differentials">
+    <div class="container">
+      <h2 class="section-title">Nossos diferenciais</h2>
+      <p class="section-subtitle">Descubra o que torna a M² única no mercado.</p>
+      <div class="features-grid">
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Abordagem Full‑Stack</h3>
+          <p class="bento-text">Integramos branding, tráfego, tecnologia e dados em um único ecossistema, garantindo consistência e escala.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Metodologia própria</h3>
+          <p class="bento-text">Nossa “Engenharia de Crescimento Digital” combina criatividade, dados e automação para entregar resultados excepcionais.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Execução técnica & criativa</h3>
+          <p class="bento-text">Equilibramos design e performance, com foco em UX e métricas de negócio.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Suporte estratégico contínuo</h3>
+          <p class="bento-text">Acompanhamento próximo via WhatsApp, reuniões regulares e relatórios personalizados.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Cultura de resultado</h3>
+          <p class="bento-text">Cada ação é guiada por indicadores como leads, vendas, ROI e engajamento para maximizar performance.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Atendimento humanizado</h3>
+          <p class="bento-text">Comunicação consultiva e orientada a soluções, com relacionamento próximo e transparente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="tips-section" id="tips">
+    <div class="container">
+      <h2 class="section-title">Dicas de marketing</h2>
+      <p class="section-subtitle">Algumas recomendações práticas para impulsionar sua presença digital.</p>
+      <div class="tips-grid">
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Otimize para mobile</h3>
+          <p class="bento-text">Sites responsivos oferecem melhor experiência, reduzem taxa de rejeição e ajudam no SEO.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Use chatbots e automação</h3>
+          <p class="bento-text">Chatbots capturam leads em tempo real e automatizam follow‑ups, aumentando conversões.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Faça testes A/B</h3>
+          <p class="bento-text">Experimente diferentes criativos, mensagens e públicos para descobrir o que mais converte.</p>
+        </div>
+        <div class="bento-item" data-aos="fade-up">
+          <h3 class="bento-title">Invista em conteúdo de qualidade</h3>
+          <p class="bento-text">Artigos, vídeos e e‑books relevantes educam sua audiência e fortalecem sua autoridade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Section removed by user request -->
+  <section class="blog-section" id="blog">
+    <div class="container">
+      <h2>Blog & Insights</h2>
+      <div class="blog-grid">
+        <!-- Blog post 1 -->
+        <div class="blog-card bento-item" data-aos="fade-up">
+          <picture>
+            <source srcset="assets/img/ads-illustration.webp" type="image/webp">
+            <img src="assets/img/ads-illustration.png" alt="Como aumentar o ROI com anúncios inteligentes" class="blog-image" loading="lazy">
+          </picture>
+          <div class="blog-card-content">
+            <h3 class="blog-title">Como aumentar o ROI com anúncios inteligentes</h3>
+            <p class="blog-summary">Dicas práticas para otimizar seus anúncios e reduzir custos.</p>
+            <span class="reading-time">Tempo de leitura: 5 min</span>
+            <a href="blog/roi-anuncios-inteligentes.html" class="btn btn-outline btn-card">Ler mais</a>
+          </div>
+        </div>
+        <!-- Blog post 2 -->
+        <div class="blog-card bento-item" data-aos="fade-up">
+          <picture>
+            <source srcset="assets/img/marketing-illustration.webp" type="image/webp">
+            <img src="assets/img/marketing-illustration.png" alt="Tendências de marketing digital para 2026" class="blog-image" loading="lazy">
+          </picture>
+          <div class="blog-card-content">
+            <h3 class="blog-title">Tendências de marketing digital para 2026</h3>
+            <p class="blog-summary">Descubra as principais tendências e prepare-se para o futuro.</p>
+            <span class="reading-time">Tempo de leitura: 5 min</span>
+            <a href="blog/tendencias-marketing-2026.html" class="btn btn-outline btn-card">Ler mais</a>
+          </div>
+        </div>
+        <!-- Blog post 3 -->
+        <div class="blog-card bento-item" data-aos="fade-up">
+          <picture>
+            <source srcset="assets/img/content-illustration.webp" type="image/webp">
+            <img src="assets/img/content-illustration.png" alt="SEO vs SEM: qual estratégia é ideal para sua empresa?" class="blog-image" loading="lazy">
+          </picture>
+          <div class="blog-card-content">
+            <h3 class="blog-title">SEO vs SEM: qual estratégia é ideal para sua empresa?</h3>
+            <p class="blog-summary">Entenda as diferenças e como combinar as duas estratégias.</p>
+            <span class="reading-time">Tempo de leitura: 5 min</span>
+            <a href="blog/seo-vs-sem.html" class="btn btn-outline btn-card">Ler mais</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="blog/index.html" class="btn btn-primary">Ver todos os posts</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter / Lead Capture section -->
+  <section class="newsletter-section" id="newsletter">
+    <div class="container">
+      <h2>Baixe nosso e‑book gratuito</h2>
+      <p>Preencha seus dados para receber um e‑book exclusivo com dicas práticas de marketing digital para atrair e reter clientes.</p>
+      <form id="newsletter-form" class="newsletter-form" action="#" method="post">
+        <div class="input-group">
+          <span class="input-icon">
+            <!-- Ícone de usuário -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm89.6 32h-11.6c-22.7 10.9-47.9 16-78 16s-55.3-5.1-78-16h-11.6C60.8 288 0 348.8 0 421.3c0 34.7 45.8 58.7 91.2 58.7H356.8c45.4 0 91.2-24 91.2-58.7C448 348.8 387.2 288 313.6 288z"/></svg>
+          </span>
+          <input type="text" name="name" placeholder="Seu nome" required>
+        </div>
+        <div class="input-group">
+          <span class="input-icon">
+            <!-- Ícone de e‑mail -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M502.3 190.8L327.4 338c-19.3 15.7-46.5 15.7-65.8 0L9.7 190.8C3.9 185.8 0 178.6 0 171.1V80c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v91.1c0 7.5-3.9 14.7-9.7 20zM480 128L256 312 32 128V80h448v48z"/></svg>
+          </span>
+          <input type="email" name="email" placeholder="Seu e‑mail" required>
+        </div>
+        <div class="input-group">
+          <span class="input-icon">
+            <!-- Ícone de WhatsApp -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339.2 55.5 286.5 32 230.7 32c-90.5 0-164 73.5-164 164 0 28.9 7.5 56.9 21.7 81.6L38 420l114-50.4c23.9 13.1 50.7 20 78.2 20h.4c90.6 0 164.3-73.5 164.3-164.1c0-43.8-17.1-85-47.5-115.4zM230.7 349.6c-24.2 0-47.9-6.3-68.6-18.3l-4.9-2.9l-67.6 29.9l14.5-69.1l-2.6-4.3c-12.2-20.5-18.6-44.1-18.6-68.2c0-72.5 59-131.5 131.5-131.5c35.2 0 68.3 13.7 93.2 38.6s38.6 58 38.6 93.2c0 72.5-59 131.5-131.5 131.5zm70.3-97.4c-3.8-1.9-22.4-11-25.8-12.2c-3.5-1.3-6-1.9-8.6 1.9s-9.9 12.2-12.2 14.7s-4.5 2.8-8.3 0.9c-22.7-11.4-37.5-20.5-52.5-46.4c-4-6.9 4-6.5 11.4-21.5c1.3-2.8 .6-5.2-.3-7.1c-.9-1.9-8.6-21-11.8-28.9c-3.1-7.5-6.3-6.5-8.6-6.6c-2.2-.1-4.7-.1-7.3-.1c-2.6 0-6.8 .9-10.3 4.7s-13.5 13.2-13.5 32.2c0 19 13.8 37.4 15.7 40c1.9 2.5 27 41.3 65.4 58c9.1 3.9 16.2 6.2 21.7 8c9.1 2.9 17.4 2.5 24 1.5 7.3-1.1 22.4-9.2 25.6-18.1c3.2-8.9 3.2-16.5 2.3-18.1c-.9-1.6-3.5-2.5-7.3-4.4z"/></svg>
+          </span>
+          <input type="tel" name="whatsapp" placeholder="Seu WhatsApp" pattern="[0-9]{10,13}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <!-- Download icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+          <span>Quero receber</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2>Entre em contato</h2>
+      <p>Estamos prontos para transformar o seu negócio. Escolha a forma de contato que preferir.</p>
+      <div class="socials">
+  <a class="chip" href="https://wa.me/5527988643815?text=Ol%C3%A1!%20Vim%20pelo%20site." target="_blank" rel="noopener">
+    <!-- WhatsApp icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339.2 55.5 286.5 32 230.7 32c-90.5 0-164 73.5-164 164 0 28.9 7.5 56.9 21.7 81.6L38 420l114-50.4c23.9 13.1 50.7 20 78.2 20h.4c90.6 0 164.3-73.5 164.3-164.1c0-43.8-17.1-85-47.5-115.4zM230.7 349.6c-24.2 0-47.9-6.3-68.6-18.3l-4.9-2.9l-67.6 29.9l14.5-69.1l-2.6-4.3c-12.2-20.5-18.6-44.1-18.6-68.2c0-72.5 59-131.5 131.5-131.5c35.2 0 68.3 13.7 93.2 38.6s38.6 58 38.6 93.2c0 72.5-59 131.5-131.5 131.5zm70.3-97.4c-3.8-1.9-22.4-11-25.8-12.2c-3.5-1.3-6-1.9-8.6 1.9s-9.9 12.2-12.2 14.7s-4.5 2.8-8.3 0.9c-22.7-11.4-37.5-20.5-52.5-46.4c-4-6.9 4-6.5 11.4-21.5c1.3-2.8 .6-5.2-.3-7.1c-.9-1.9-8.6-21-11.8-28.9c-3.1-7.5-6.3-6.5-8.6-6.6c-2.2-.1-4.7-.1-7.3-.1c-2.6 0-6.8 .9-10.3 4.7s-13.5 13.2-13.5 32.2c0 19 13.8 37.4 15.7 40c1.9 2.5 27 41.3 65.4 58c9.1 3.9 16.2 6.2 21.7 8c9.1 2.9 17.4 2.5 24 1.5 7.3-1.1 22.4-9.2 25.6-18.1c3.2-8.9 3.2-16.5 2.3-18.1c-.9-1.6-3.5-2.5-7.3-4.4z"/></svg>
+    WhatsApp
+  </a>
+  <a class="chip" href="mailto:contato@m2estrategiadigital.com.br">
+    <!-- Email/envelope icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M502.3 190.8L327.4 338c-19.3 15.7-46.5 15.7-65.8 0L9.7 190.8C3.9 185.8 0 178.6 0 171.1V80c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v91.1c0 7.5-3.9 14.7-9.7 20zM480 128L256 312 32 128V80h448v48z"/></svg>
+    E‑mail
+  </a>
+  <a class="chip" href="https://instagram.com/m2estrategia" target="_blank" rel="noopener">
+    <!-- Instagram icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M224 202.66A53.34 53.34 0 1 0 277.34 256 53.38 53.38 0 0 0 224 202.66ZM398.8 64H49.2A49.23 49.23 0 0 0 0 113.8v285.4A49.23 49.23 0 0 0 49.2 448h349.6A49.23 49.23 0 0 0 448 399.2V113.8A49.23 49.23 0 0 0 398.8 64ZM224 338a82 82 0 1 1 82-82 82 82 0 0 1-82 82Zm142-191.6a19.8 19.8 0 1 1 19.8-19.8 19.8 19.8 0 0 1-19.8 19.8Z"/></svg>
+    Instagram
+  </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 M2 Estratégia Digital. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <!-- Sticky CTA bar that appears after scrolling 60% down the page -->
+  <div class="sticky-cta-bar">
+    <span class="sticky-cta-text">Vamos acelerar seus resultados? Fale com um especialista agora!</span>
+    <a href="#contact" class="btn btn-primary pulse">Falar com um especialista</a>
+  </div>
+
+  <!-- Chat widget removed: floating button now leva direto ao WhatsApp -->
+
+  <!-- Interactive quiz overlay -->
+  <div class="quiz-overlay" id="quiz-overlay">
+    <div class="quiz-container">
+      <button class="quiz-close" aria-label="Fechar">&times;</button>
+      <!-- Step 1 -->
+      <div class="quiz-step" data-step="1">
+        <h3>Descubra seu nível de maturidade digital</h3>
+        <p>Quantos colaboradores sua empresa tem?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-option" data-answer="small">1–5</button>
+          <button type="button" class="quiz-option" data-answer="medium">6–50</button>
+          <button type="button" class="quiz-option" data-answer="large">51+</button>
+        </div>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-next">Próximo</button>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="quiz-step" data-step="2" style="display:none;">
+        <h3>Seu principal objetivo</h3>
+        <p>Qual é a maior prioridade do seu marketing?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-option" data-answer="leads">Gerar mais leads</button>
+          <button type="button" class="quiz-option" data-answer="automation">Automatizar processos</button>
+          <button type="button" class="quiz-option" data-answer="seo">Melhorar presença online</button>
+        </div>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-prev">Voltar</button>
+          <button type="button" class="quiz-next">Próximo</button>
+        </div>
+      </div>
+      <!-- Step 3: result -->
+      <div class="quiz-step" data-step="3" style="display:none;">
+        <h3>Resultado</h3>
+        <p class="quiz-result" aria-live="polite"></p>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-prev">Voltar</button>
+          <button type="button" class="quiz-next">Continuar</button>
+        </div>
+      </div>
+      <!-- Step 4: contact -->
+      <div class="quiz-step" data-step="4" style="display:none;">
+        <h3>Deixe seus dados para receber o diagnóstico completo</h3>
+        <form class="quiz-form">
+          <input type="text" id="quiz-name" placeholder="Seu nome" required>
+          <input type="email" id="quiz-email" placeholder="Seu email" required>
+          <button type="submit" class="quiz-submit">Enviar</button>
+        </form>
+        <p class="quiz-thanks" style="display:none;">Obrigado! Em breve entraremos em contato com seu diagnóstico personalizado.</p>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-prev">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROI calculator overlay -->
+  <div class="roi-overlay" id="roi-overlay">
+    <div class="roi-container">
+      <button class="roi-close" aria-label="Fechar calculadora">&times;</button>
+      <!-- Step 1: leads and investment -->
+      <div class="roi-step active" data-step="1">
+        <h3>Calcule seu ROI de marketing</h3>
+        <div class="roi-field">
+          <label for="roi-leads">Quantidade de leads gerados</label>
+          <input type="number" id="roi-leads" min="0" required>
+        </div>
+        <div class="roi-field">
+          <label for="roi-invest">Investimento total em marketing (R$)</label>
+          <input type="number" id="roi-invest" min="0" required>
+        </div>
+        <div class="roi-nav">
+          <span></span>
+          <button type="button" class="roi-next">Próximo</button>
+        </div>
+      </div>
+      <!-- Step 2: conversion and ticket -->
+      <div class="roi-step" data-step="2">
+        <h3>Dados de venda</h3>
+        <div class="roi-field">
+          <label for="roi-conversion">Taxa de conversão (%)</label>
+          <input type="number" id="roi-conversion" min="0" max="100" required>
+        </div>
+        <div class="roi-field">
+          <label for="roi-ticket">Ticket médio (R$)</label>
+          <input type="number" id="roi-ticket" min="0" required>
+        </div>
+        <div class="roi-nav">
+          <button type="button" class="roi-prev">Voltar</button>
+          <button type="button" class="roi-next">Próximo</button>
+        </div>
+      </div>
+      <!-- Step 3: result -->
+      <div class="roi-step" data-step="3">
+        <h3>Resultado</h3>
+        <p class="roi-result" aria-live="polite"></p>
+        <div class="roi-nav">
+          <button type="button" class="roi-prev">Voltar</button>
+          <button type="button" class="roi-next">Continuar</button>
+        </div>
+      </div>
+      <!-- Step 4: contact -->
+        <div class="roi-step" data-step="4">
+        <h3>Receba um relatório personalizado</h3>
+        <form class="roi-form">
+          <!-- Nome com ícone -->
+          <div class="input-group">
+            <span class="input-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm89.6 32h-11.6c-22.7 10.9-47.9 16-78 16s-55.3-5.1-78-16h-11.6C60.8 288 0 348.8 0 421.3c0 34.7 45.8 58.7 91.2 58.7H356.8c45.4 0 91.2-24 91.2-58.7C448 348.8 387.2 288 313.6 288z"/></svg>
+            </span>
+            <input type="text" id="roi-name" placeholder="Seu nome" required>
+          </div>
+          <!-- Email com ícone -->
+          <div class="input-group">
+            <span class="input-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M502.3 190.8L327.4 338c-19.3 15.7-46.5 15.7-65.8 0L9.7 190.8C3.9 185.8 0 178.6 0 171.1V80c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v91.1c0 7.5-3.9 14.7-9.7 20zM480 128L256 312 32 128V80h448v48z"/></svg>
+            </span>
+            <input type="email" id="roi-email" placeholder="Seu e‑mail" required>
+          </div>
+          <!-- WhatsApp com ícone -->
+          <div class="input-group">
+            <span class="input-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339.2 55.5 286.5 32 230.7 32c-90.5 0-164 73.5-164 164 0 28.9 7.5 56.9 21.7 81.6L38 420l114-50.4c23.9 13.1 50.7 20 78.2 20h.4c90.6 0 164.3-73.5 164.3-164.1c0-43.8-17.1-85-47.5-115.4zM230.7 349.6c-24.2 0-47.9-6.3-68.6-18.3l-4.9-2.9l-67.6 29.9l14.5-69.1l-2.6-4.3c-12.2-20.5-18.6-44.1-18.6-68.2c0-72.5 59-131.5 131.5-131.5c35.2 0 68.3 13.7 93.2 38.6s38.6 58 38.6 93.2c0 72.5-59 131.5-131.5 131.5zm70.3-97.4c-3.8-1.9-22.4-11-25.8-12.2c-3.5-1.3-6-1.9-8.6 1.9s-9.9 12.2-12.2 14.7s-4.5 2.8-8.3 0.9c-22.7-11.4-37.5-20.5-52.5-46.4c-4-6.9 4-6.5 11.4-21.5c1.3-2.8 .6-5.2-.3-7.1c-.9-1.9-8.6-21-11.8-28.9c-3.1-7.5-6.3-6.5-8.6-6.6c-2.2-.1-4.7-.1-7.3-.1c-2.6 0-6.8 .9-10.3 4.7s-13.5 13.2-13.5 32.2c0 19 13.8 37.4 15.7 40c1.9 2.5 27 41.3 65.4 58c9.1 3.9 16.2 6.2 21.7 8c9.1 2.9 17.4 2.5 24 1.5 7.3-1.1 22.4-9.2 25.6-18.1c3.2-8.9 3.2-16.5 2.3-18.1c-.9-1.6-3.5-2.5-7.3-4.4z"/></svg>
+            </span>
+            <input type="tel" id="roi-whatsapp" placeholder="Seu WhatsApp" pattern="[0-9]{10,13}" required>
+          </div>
+          <button type="submit" class="roi-submit">Enviar</button>
+        </form>
+        <p class="roi-thanks" style="display:none;">Obrigado! Agora você pode baixar nosso e‑book exclusivo.</p>
+        <div class="roi-nav">
+          <button type="button" class="roi-prev">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case study overlay for testimonials -->
+  <div class="case-overlay" id="case-overlay">
+    <div class="case-container">
+      <button class="case-close" aria-label="Fechar case">&times;</button>
+      <div class="case-content" data-case="1">
+        <h3>Case: TechNova</h3>
+        <p><strong>Desafio:</strong> Baixo retorno de campanhas e crescimento limitado.</p>
+        <p><strong>Solução:</strong> Reestruturamos a estratégia digital com foco em segmentação, funis de vendas e automação.</p>
+        <p><strong>Resultados:</strong> ROI triplicado e crescimento sustentável em 6 meses.</p>
+      </div>
+      <div class="case-content" data-case="2" style="display:none;">
+        <h3>Case: Loja X</h3>
+        <p><strong>Desafio:</strong> Necessidade de atrair mais clientes qualificados.</p>
+        <p><strong>Solução:</strong> Implementamos campanhas de tráfego pago altamente segmentadas e otimização de landing pages.</p>
+        <p><strong>Resultados:</strong> Base de clientes dobrada e aumento significativo do investimento.</p>
+      </div>
+      <div class="case-content" data-case="3" style="display:none;">
+        <h3>Case: StartApp</h3>
+        <p><strong>Desafio:</strong> Falta de consistência nas ações de marketing.</p>
+        <p><strong>Solução:</strong> Definimos processos de marketing orientados por dados, integrando BI e automação.</p>
+        <p><strong>Resultados:</strong> Retenção elevada, leads qualificados e crescimento contínuo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating action button (FAB) linking diretamente ao WhatsApp -->
+  <a class="fab" href="https://wa.me/5527988643815?text=Ol%C3%A1!%20Vim%20pelo%20site." target="_blank" rel="noopener" role="button">
+    <span class="fab__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339.2 55.5 286.5 32 230.7 32c-90.5 0-164 73.5-164 164 0 28.9 7.5 56.9 21.7 81.6L38 420l114-50.4c23.9 13.1 50.7 20 78.2 20h.4c90.6 0 164.3-73.5 164.3-164.1c0-43.8-17.1-85-47.5-115.4zM230.7 349.6c-24.2 0-47.9-6.3-68.6-18.3l-4.9-2.9l-67.6 29.9l14.5-69.1l-2.6-4.3c-12.2-20.5-18.6-44.1-18.6-68.2c0-72.5 59-131.5 131.5-131.5c35.2 0 68.3 13.7 93.2 38.6s38.6 58 38.6 93.2c0 72.5-59 131.5-131.5 131.5zm70.3-97.4c-3.8-1.9-22.4-11-25.8-12.2c-3.5-1.3-6-1.9-8.6 1.9s-9.9 12.2-12.2 14.7s-4.5 2.8-8.3 0.9c-22.7-11.4-37.5-20.5-52.5-46.4c-4-6.9 4-6.5 11.4-21.5c1.3-2.8 .6-5.2-.3-7.1c-.9-1.9-8.6-21-11.8-28.9c-3.1-7.5-6.3-6.5-8.6-6.6c-2.2-.1-4.7-.1-7.3-.1c-2.6 0-6.8 .9-10.3 4.7s-13.5 13.2-13.5 32.2c0 19 13.8 37.4 15.7 40c1.9 2.5 27 41.3 65.4 58c9.1 3.9 16.2 6.2 21.7 8c9.1 2.9 17.4 2.5 24 1.5 7.3-1.1 22.4-9.2 25.6-18.1c3.2-8.9 3.2-16.5 2.3-18.1c-.9-1.6-3.5-2.5-7.3-4.4z"/></svg>
+    </span>
+    <span class="fab__label">Fale conosco</span>
+  </a>
+
+  <script src="assets/js/script.js"></script>
+  <!-- AOS library for scroll animations -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS animations
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+  </script>
+</body>
+</html>

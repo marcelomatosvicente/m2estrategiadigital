@@ -1,0 +1,1864 @@
+/*
+ * Main stylesheet for the M2 Estratégia website
+ *
+ * This file defines the visual language of the site, including the color
+ * palette, typography, layout, component styles (cards, buttons, forms),
+ * and responsive behavior. Variables are declared under :root for easy
+ * customization. Sections are ordered logically from global resets to
+ * components and responsive adjustments.
+ */
+
+/* ------------------- */
+/* CSS VARIABLES AND BASE STYLES */
+/* ------------------- */
+:root {
+  /* Brand colours */
+  --color-primary: #00d4aa;
+  --color-secondary: #0099cc;
+  /* Dark theme palette */
+  --bg-dark: #0a0a0b;
+  --bg-light: #f5f5f7;
+  --text-dark-primary: #ffffff;
+  --text-dark-secondary: #a8a8a8;
+  --text-light-primary: #1d1d1f;
+  --text-light-secondary: #515154;
+  /* Component specifics */
+  --radius-large: 18px;
+  --radius-full: 999px;
+  --transition-fast: 0.25s;
+  --transition-mid: 0.35s;
+  --shadow-primary: 0 10px 30px rgba(0, 212, 170, 0.35);
+  --shadow-primary-hover: 0 18px 45px rgba(0, 212, 170, 0.45);
+  /* Fonts */
+  --font-primary: 'Space Grotesk', 'Inter', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background: var(--bg-dark);
+  color: var(--text-dark-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Light theme override */
+body.light-theme {
+  background: var(--bg-light);
+  color: var(--text-light-primary);
+}
+body.light-theme .container {
+  color: var(--text-light-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container for consistent horizontal padding */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ------------------- */
+/* HEADER AND NAVIGATION */
+/* ------------------- */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background var(--transition-fast), border-bottom var(--transition-fast);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+header.scrolled {
+  background: rgba(10, 10, 11, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+body.light-theme header.scrolled {
+  background: rgba(245, 245, 247, 0.9);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  /* Arrange header items in a single row and prevent overlap */
+  display: flex;
+  align-items: center;
+  /* Start items from the left; we'll push CTA/tools to the end with margin-left:auto */
+  justify-content: flex-start;
+  /* Allow wrapping on very narrow screens to avoid text overlapping */
+  flex-wrap: wrap;
+  height: 70px;
+  padding: 0.5rem 0;
+}
+
+/* CTA button that appears in header when scrolled */
+.nav-cta {
+  /* Push CTA to the far right; it will occupy its own space */
+  margin-left: auto;
+  display: none;
+  font-size: 0.9rem;
+}
+header.scrolled .nav-cta {
+  display: inline-flex;
+}
+
+/* Sticky bottom CTA bar */
+.sticky-cta-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100px;
+  background: var(--color-bg-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1400;
+  transition: transform 0.4s ease;
+  transform: translateY(100%);
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.3);
+}
+.sticky-cta-bar.show {
+  transform: translateY(0);
+}
+
+/* ------------------- */
+/* TESTIMONIALS SECTION */
+/* ------------------- */
+.testimonials-section {
+  padding: 4rem 0;
+}
+.testimonials-section h2 {
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  /* enable 3D perspective for flipping cards */
+  perspective: 1000px;
+}
+.testimonial-card {
+  padding: 2rem;
+  border-radius: var(--radius-large);
+  background: radial-gradient(800px 400px at 20% 120%, rgba(0, 212, 170, 0.06), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  transition: transform var(--transition-mid), box-shadow var(--transition-mid);
+  transform-style: preserve-3d;
+  /* Ensure each testimonial card has enough vertical space for its front and back faces. Using a
+     minimum height prevents the card from collapsing to a small strip when only the header is
+     visible. Flexbox distributes space to push the quote and CTA to the bottom on the front
+     face and allows the back face content to scroll naturally if needed. */
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 212, 170, 0.25);
+}
+
+/* ------------------- */
+/* INTERACTIVE CASE STUDIES (FLIP CARDS) */
+/* ------------------- */
+/*
+ * The testimonials section doubles as an interactive case study slider. Each
+ * card contains a front face (testimonial summary) and a back face
+ * (challenge, solution, results). On hover the card flips 180° to reveal
+ * the back side. A 3D perspective is set on the parent grid in
+ * .testimonials-grid. Users on touch devices can tap to flip.
+ */
+.testimonial-card .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+.testimonial-card .front,
+.testimonial-card .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.testimonial-card .back {
+  transform: rotateY(180deg);
+}
+.testimonial-card:hover .card-inner,
+.testimonial-card:focus-within .card-inner {
+  transform: rotateY(180deg);
+}
+.testimonial-card:hover,
+.testimonial-card:focus-within {
+  box-shadow: 0 12px 40px rgba(0, 212, 170, 0.4);
+}
+
+/* ------------------- */
+/* ROI CALCULATOR OVERLAY */
+/* ------------------- */
+/*
+ * The ROI calculator overlay opens as a modal when triggered via
+ * elements with the .open-roi class. It guides the user through a
+ * multi‑step form to compute the return on marketing investment and
+ * collect contact details. It is hidden by default and uses flexbox
+ * centering similar to the quiz overlay.
+ */
+.roi-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.roi-container {
+  background: var(--bg-dark);
+  color: var(--text-dark-primary);
+  padding: 2rem;
+  border-radius: var(--radius-large);
+  /* Increase maximum width to make the ROI and report modals easier to read on desktop */
+  /* Increase the width on larger screens so the form fields and content have more room. */
+  /* Slightly wider container to allow more breathing space */
+  max-width: 720px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+body.light-theme .roi-container {
+  background: var(--bg-light);
+  color: var(--text-light-primary);
+}
+.roi-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: inherit;
+  cursor: pointer;
+}
+.roi-step {
+  display: none;
+}
+.roi-step.active {
+  display: block;
+}
+.roi-step h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+.roi-field {
+  margin-bottom: 1rem;
+}
+.roi-field label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+.roi-field input {
+  width: 100%;
+  /* Larger padding and font for better readability */
+  /* Provide more generous padding and font size for comfortable data entry. */
+  /* Increased padding and font size for more comfortable input */
+  padding: 1.3rem 1.4rem;
+  border-radius: var(--radius-large);
+  font-size: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+}
+body.light-theme .roi-field input {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.05);
+}
+.roi-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.roi-nav button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-large);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.roi-nav button.roi-prev {
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.roi-nav button.roi-next,
+.roi-nav button.roi-submit {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #0a0a0b;
+  box-shadow: var(--shadow-primary);
+}
+.roi-result {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+.roi-thanks {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* ------------------- */
+/* CASE STUDY OVERLAY */
+/* ------------------- */
+/*
+ * The case study overlay reveals detailed information about a client project
+ * when the user clicks on a testimonial card. Each case is stored in its own
+ * .case-content container and only the relevant one is displayed. The overlay
+ * reuses the same modal styling as the ROI calculator for consistency.
+ */
+.case-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.case-container {
+  background: var(--bg-dark);
+  color: var(--text-dark-primary);
+  padding: 2rem;
+  border-radius: var(--radius-large);
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+body.light-theme .case-container {
+  background: var(--bg-light);
+  color: var(--text-light-primary);
+}
+.case-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: inherit;
+  cursor: pointer;
+}
+.case-content {
+  display: none;
+}
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.testimonial-avatar {
+  /* Increase avatar size for better visibility of custom illustrations */
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  box-shadow: 0 6px 16px rgba(0, 212, 170, 0.25);
+  color: #0a0a0b;
+  flex-shrink: 0;
+}
+
+/* When using photos for testimonial avatars, ensure the image fills the circular container. */
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+.testimonial-info h4 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+.testimonial-role {
+  font-size: 0.8rem;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+.testimonial-quote {
+  font-style: italic;
+  line-height: 1.4;
+  margin-top: 0.75rem;
+  color: var(--text-dark-primary);
+}
+
+/* ------------------- */
+/* TEAM SECTION */
+/* ------------------- */
+.team-section {
+  padding: 4rem 0;
+  text-align: center;
+}
+.team-section h2 {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.team-member {
+  max-width: 220px;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: var(--radius-large);
+  background: radial-gradient(800px 400px at 20% 120%, rgba(0, 212, 170, 0.06), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform var(--transition-mid), box-shadow var(--transition-mid);
+}
+.team-member:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 212, 170, 0.25);
+}
+.team-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: #0a0a0b;
+  box-shadow: 0 8px 20px rgba(0, 212, 170, 0.25);
+}
+
+/* Ensure team photos fill the circle when replacing icons */
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+.team-member h4 {
+  font-size: 1.2rem;
+  margin: 0 0 0.25rem;
+}
+.team-role {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+.team-bio {
+  font-size: 0.85rem;
+  color: var(--text-dark-secondary);
+  margin-top: 0.5rem;
+}
+
+/* ------------------- */
+/* BLOG SECTION */
+/* ------------------- */
+.blog-section {
+  padding: 4rem 0;
+}
+.blog-section h2 {
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.blog-grid {
+  display: grid;
+  /* Use larger minimum width for blog cards to improve layout on desktops */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+.blog-card {
+  /* Turn blog cards into flex containers for improved alignment */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-large);
+  background: radial-gradient(800px 400px at 20% 120%, rgba(0, 212, 170, 0.04), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform var(--transition-mid), box-shadow var(--transition-mid);
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 212, 170, 0.25);
+}
+.blog-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  /* Round only the top corners since card has no padding at top */
+  border-top-left-radius: var(--radius-large);
+  border-top-right-radius: var(--radius-large);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.blog-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.blog-summary {
+  font-size: 0.95rem;
+  color: var(--text-dark-secondary);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+.blog-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+/* Align read-more buttons to the start of the blog card */
+.btn-card {
+  align-self: flex-start;
+}
+.sticky-cta-text {
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+.sticky-cta-bar .btn {
+  flex-shrink: 0;
+}
+
+/* Chat widget styling */
+.chat-widget {
+  position: fixed;
+  right: 22px;
+  bottom: 90px;
+  width: 280px;
+  background: var(--color-bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 1499;
+}
+.chat-widget p {
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+}
+.chat-widget .chat-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+.chat-widget .chat-btn {
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #071013;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.chat-widget .chat-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 212, 170, 0.4);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo img {
+  height: 42px;
+  width: auto;
+}
+.logo span {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Prevent the brand name from breaking into multiple lines */
+  white-space: nowrap;
+}
+
+/* Navigation menu */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  /* Add left margin so the navigation items aren't too close to the logo */
+  margin-left: 1.5rem;
+  /* Allow nav items to wrap when necessary */
+  flex-wrap: wrap;
+  /* Do not force nowrap or horizontal scrolling */
+  flex: initial;
+}
+.nav-menu a {
+  position: relative;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+  color: inherit;
+  font-size: 0.95rem;
+}
+.nav-menu a:hover {
+  color: var(--color-primary);
+}
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  transition: width var(--transition-fast);
+}
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+.theme-toggle:hover {
+  border-color: var(--color-primary);
+  transform: rotate(15deg);
+}
+.theme-toggle svg {
+  width: 22px;
+  height: 22px;
+  color: currentColor;
+  transition: opacity var(--transition-fast);
+}
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+body.light-theme .theme-toggle .icon-sun { display: block; }
+body.light-theme .theme-toggle .icon-moon { display: none; }
+
+/* Mobile menu toggle */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+.mobile-toggle span {
+  width: 28px;
+  height: 2px;
+  background: currentColor;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+.mobile-toggle.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-toggle.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Responsive navigation */
+@media (max-width: 992px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 10, 11, 0.95);
+    backdrop-filter: blur(20px);
+    width: 220px;
+    padding: 2rem 1.5rem;
+    transform: translateX(100%);
+    transition: transform var(--transition-fast);
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    gap: 1.5rem;
+  }
+  .nav-menu.open {
+    transform: translateX(0);
+  }
+  .mobile-toggle {
+    display: flex;
+  }
+  /* Light theme background for mobile menu */
+  body.light-theme .nav-menu {
+    background: rgba(245, 245, 247, 0.95);
+  }
+}
+
+/* ------------------- */
+/* BUTTONS */
+/* ------------------- */
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  gap: 0.55rem;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #071013;
+  box-shadow: var(--shadow-primary);
+  /* optional pulse shadow for high-impact CTA */
+  position: relative;
+}
+
+/* Pulse shadow animation for attention-grabbing CTAs */
+.btn-primary.pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  opacity: 0.6;
+  z-index: -1;
+  filter: blur(12px);
+  animation: pulseShadow 2.8s ease-in-out infinite;
+}
+
+@keyframes pulseShadow {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-primary-hover);
+}
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.btn-outline {
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: var(--radius-full);
+  --gradient-border: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background-image: var(--gradient-border);
+  background-origin: border-box;
+  box-shadow: inset 0 0 0 100vmax var(--bg-dark);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+body.light-theme .btn-outline {
+  box-shadow: inset 0 0 0 100vmax var(--bg-light);
+}
+.btn-outline:hover {
+  color: #0a0a0b;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: inherit;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.btn-ghost:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.12);
+}
+
+/* Icons inside buttons */
+.btn svg {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.3rem;
+  transition: transform var(--transition-fast);
+}
+.btn span {
+  display: inline-block;
+}
+.btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Ripple effect (span injected via JS) */
+.btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  animation: ripple 0.6s linear;
+  mix-blend-mode: overlay;
+}
+@keyframes ripple {
+  to {
+    transform: scale(12);
+    opacity: 0;
+  }
+}
+
+/* ------------------- */
+/* HERO SECTION */
+/* ------------------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8rem 0 4rem;
+  background: radial-gradient(800px 400px at 20% -100px, rgba(0, 212, 170, 0.15), transparent),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+}
+.hero h1 {
+  font-family: var(--font-primary);
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Custom hero heading with typed effect */
+.hero-heading {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.cursor {
+  display: inline-block;
+  font-weight: 700;
+  margin-left: 4px;
+  color: var(--color-primary);
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.hero p {
+  color: var(--text-dark-secondary);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+}
+body.light-theme .hero p {
+  color: var(--text-light-secondary);
+}
+.hero .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ------------------- */
+/* SERVICES SECTION */
+/* ------------------- */
+.services-section {
+  padding: 4rem 0;
+}
+.services-section h2 {
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Credibility metrics displayed under the services heading */
+.service-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  color: var(--text-dark-secondary);
+  padding: 0;
+}
+.service-stats li {
+  list-style: none;
+  text-align: center;
+  font-size: 1rem;
+}
+.service-stats li strong {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.bento-grid {
+  display: grid;
+  /* Use a single-column layout by default; will switch to two columns on wider screens */
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.bento-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-large);
+  padding: 2rem;
+  background: radial-gradient(1200px 500px at 20% 120%, rgba(0, 212, 170, 0.06), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform var(--transition-mid) cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow var(--transition-mid), border-color var(--transition-mid);
+}
+.bento-item::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--radius-large) + 2px);
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 0;
+}
+.bento-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 212, 170, 0.35);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 212, 170, 0.08) inset;
+}
+.bento-item-large {
+  /* Large cards span two columns but only one row to avoid disproportionate height */
+  grid-column: span 2;
+  grid-row: span 1;
+}
+.bento-item[data-spotlight='true']::after {
+  content: '';
+  position: absolute;
+  inset: auto -30% -30% auto;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 212, 170, 0.18), transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Progress bar at top to show scroll progress */
+.progress-bar {
+  /* Hide the scroll progress bar. We keep the element in the DOM for legacy
+   * reasons, but do not display it to avoid visual clutter at the top of
+   * the page. */
+  display: none;
+}
+.bento-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.1rem;
+  position: relative;
+  z-index: 1;
+  color: #0a0a0b;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 212, 170, 0.25);
+}
+.bento-item img.bento-image {
+  width: 100%;
+  height: auto;
+  /* Limit the height of illustrations to maintain proportional cards */
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: calc(var(--radius-large) - 6px);
+  margin-bottom: 1rem;
+  display: block;
+  transition: transform var(--transition-mid);
+}
+.bento-item:hover img.bento-image {
+  /* Zoom and brighten image on hover */
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Change title color on hover to highlight the service */
+.bento-item:hover .bento-title {
+  color: var(--color-primary);
+}
+
+/* Small CTA buttons inside service cards */
+.btn-card {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.1rem;
+}
+.bento-title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin: 0.25rem 0 0.4rem;
+  z-index: 1;
+}
+.bento-text {
+  color: var(--text-dark-secondary);
+  max-width: 48ch;
+  z-index: 1;
+  font-size: 0.95rem;
+}
+body.light-theme .bento-text {
+  color: var(--text-light-secondary);
+}
+
+/* ------------------- */
+/* ABOUT / VALUE SECTION */
+/* ------------------- */
+.about-section {
+  padding: 4rem 0;
+  text-align: center;
+}
+.about-section h2 {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.about-section p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-dark-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+body.light-theme .about-section p {
+  color: var(--text-light-secondary);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.about-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-large);
+  padding: 2rem;
+  text-align: left;
+  transition: transform var(--transition-mid), border-color var(--transition-mid);
+}
+.about-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 170, 0.35);
+}
+.about-item h3 {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+.about-item p {
+  color: var(--text-dark-secondary);
+  font-size: 0.95rem;
+}
+body.light-theme .about-item p {
+  color: var(--text-light-secondary);
+}
+
+/* ------------------- */
+/* NEWSLETTER / LEAD CAPTURE SECTION */
+/* ------------------- */
+.newsletter-section {
+  padding: 4rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+body.light-theme .newsletter-section {
+  background: rgba(0, 0, 0, 0.03);
+}
+.newsletter-section h2 {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.newsletter-section p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--text-dark-secondary);
+}
+body.light-theme .newsletter-section p {
+  color: var(--text-light-secondary);
+}
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.newsletter-form input {
+  /* Larger inputs for the newsletter form */
+  /* Slightly larger fields for easier input and improved readability */
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+  font-size: 1.05rem;
+  width: 100%;
+  max-width: 420px;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.newsletter-form input::placeholder {
+  color: var(--text-dark-secondary);
+}
+body.light-theme .newsletter-form input::placeholder {
+  color: var(--text-light-secondary);
+}
+.newsletter-form input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+.newsletter-form button {
+  width: auto;
+}
+.success-message {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ------------------- */
+/* CONTACT SECTION & FOOTER */
+/* ------------------- */
+.contact-section {
+  padding: 4rem 0;
+  text-align: center;
+}
+.contact-section h2 {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.contact-section p {
+  color: var(--text-dark-secondary);
+  margin-bottom: 2rem;
+}
+body.light-theme .contact-section p {
+  color: var(--text-light-secondary);
+}
+.socials {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: inherit;
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+.chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  background: rgba(0, 212, 170, 0.06);
+}
+.chip svg {
+  width: 18px;
+  height: 18px;
+  /* Inherit colour by default from chip */
+  color: var(--color-primary);
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+/* Hover interactions for chip icons */
+.chip:hover svg {
+  transform: translateX(4px);
+  color: var(--color-secondary);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.85rem;
+  color: var(--text-dark-secondary);
+}
+body.light-theme footer {
+  color: var(--text-light-secondary);
+}
+
+/* ------------------- */
+/* FLOATING WHATSAPP BUTTON (FAB) */
+/* ------------------- */
+.fab {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  background: #25D366;
+  border-radius: var(--radius-full);
+  padding: 0.9rem 1rem;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), padding var(--transition-fast);
+  will-change: transform;
+}
+.fab:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(37, 211, 102, 0.45);
+}
+.fab__icon {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+.fab__label {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width var(--transition-fast), opacity var(--transition-fast);
+}
+.fab:hover .fab__label {
+  max-width: 220px;
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .fab {
+    padding: 0.9rem;
+  }
+  .fab__label {
+    display: none;
+  }
+}
+
+/* ------------------- */
+/* BLOG IMPROVEMENTS */
+/* ------------------- */
+/* Ensure blog images maintain aspect ratio and align nicely inside cards */
+/* Ensure blog images maintain aspect ratio and align nicely inside cards */
+.blog-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  /* Round only the top corners */
+  border-top-left-radius: var(--radius-large);
+  border-top-right-radius: var(--radius-large);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Adjust blog card layout so the button stays at the bottom */
+.blog-card {
+  display: flex;
+  flex-direction: column;
+}
+.blog-card .btn-card {
+  margin-top: auto;
+}
+
+/* Utility list style for service deliverables */
+.bento-list {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+.bento-list li {
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+  color: var(--text-dark-secondary);
+}
+
+/* Company (Sobre) section */
+.company-section {
+  padding: 4rem 0;
+}
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+.company-text p {
+  margin-bottom: 1rem;
+  color: var(--text-dark-secondary);
+}
+.company-illustration {
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius-large);
+  box-shadow: 0 12px 30px rgba(0, 212, 170, 0.25);
+}
+@media (max-width: 768px) {
+  .company-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .company-text a.btn {
+    margin-top: 1.5rem;
+  }
+}
+
+/* General section helpers */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.section-subtitle {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+/* Features/tips grid for new sections */
+.features-grid,
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Ensure bento items in feature grids adapt height */
+.features-grid .bento-item,
+.tips-grid .bento-item {
+  height: auto;
+
+  /* add more spacing between cards for clarity */
+  margin-bottom: 1rem;
+}
+
+/* Method section uses flexible grid similar to features */
+.method-section .bento-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* App section styles removed as requested */
+
+/*
+ * ------------------------------------------------------
+ *  Hero styles for blog index and article pages
+ *
+ * Blog and article pages use a simple hero section that sits
+ * below the global navigation. Without padding the hero text
+ * can overlap with the sticky header. These rules ensure
+ * adequate spacing and consistent typography across all posts.
+ */
+.article-hero,
+.blog-hero {
+  padding: 6rem 0 4rem;
+  text-align: center;
+}
+
+/* When an article hero contains an illustration, arrange the text and image
+ * side by side on larger screens for improved visual balance. Using
+ * grid-template-columns ensures responsiveness: on narrow screens, the
+ * elements stack automatically. */
+.article-hero .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+  gap: 2rem;
+  text-align: left;
+}
+.article-hero .article-image {
+  margin: 0;
+}
+.article-hero .article-image img {
+  border-radius: var(--radius-large);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Smaller screens need slightly less top padding to avoid
+ * leaving too much empty space above the hero text. */
+@media (max-width: 768px) {
+  .article-hero,
+  .blog-hero {
+    padding: 5rem 0 3rem;
+  }
+}
+
+.article-hero h1,
+.blog-hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.article-hero .article-tagline,
+.blog-hero .article-tagline {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Interactive quiz overlay                                            */
+/*
+ * The quiz overlay provides an engaging way for visitors to assess
+ * their nível de maturidade digital. It appears as a modal over the
+ * page when triggered and guides the user through a few simple steps.
+ */
+.quiz-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 3000;
+}
+body.light-theme .quiz-overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+.quiz-container {
+  background: var(--bg-dark);
+  color: var(--text-dark-primary);
+  padding: 2rem;
+  border-radius: var(--radius-large);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+body.light-theme .quiz-container {
+  background: var(--bg-light);
+  color: var(--text-light-primary);
+}
+
+/* Bigger, friendlier fields inside quiz forms */
+.quiz-container input[type="text"],
+.quiz-container input[type="email"],
+.quiz-container input[type="tel"] {
+  width: 100%;
+  padding: 1.1rem 1.3rem;
+  border-radius: var(--radius-large);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 1.1rem;
+  color: inherit;
+  margin-bottom: 1rem;
+}
+body.light-theme .quiz-container input[type="text"],
+body.light-theme .quiz-container input[type="email"],
+body.light-theme .quiz-container input[type="tel"] {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.05);
+}
+.quiz-container h3 {
+  font-family: var(--font-primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.quiz-container p {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.quiz-options button {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.quiz-options button:hover {
+  background: var(--color-primary);
+  color: #0a0a0b;
+  box-shadow: 0 8px 20px rgba(0, 212, 170, 0.3);
+}
+/* Indicate selected option */
+.quiz-options button.selected {
+  background: var(--color-primary);
+  color: #0a0a0b;
+}
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.quiz-nav button {
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-full);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+.quiz-nav button:active {
+  transform: scale(0.97);
+}
+.quiz-prev {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-dark-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+body.light-theme .quiz-prev {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-light-primary);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.quiz-next,
+.quiz-submit {
+  background: var(--color-primary);
+  color: #0a0a0b;
+  border: none;
+}
+.quiz-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-dark-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+body.light-theme .quiz-close {
+  color: var(--text-light-primary);
+}
+.quiz-result strong {
+  color: var(--color-primary);
+}
+
+/* Article images styling */
+.article-image {
+  margin: 2rem 0;
+  border-radius: var(--radius-large);
+  overflow: hidden;
+}
+.article-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*
+ * Generic media container for article images, videos or charts.
+ * Provides consistent sizing, spacing and styling across posts.
+ */
+.article-media {
+  max-width: 100%;
+  margin: 1.5rem auto;
+  border-radius: var(--radius-large);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.25);
+}
+.article-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.article-media.is-16x9 {
+  aspect-ratio: 16 / 9;
+}
+.article-media.is-4x3 {
+  aspect-ratio: 4 / 3;
+}
+.article-media.is-1x1 {
+  aspect-ratio: 1 / 1;
+}
+
+/*
+ * Simple gallery grid for multiple media items. Use the cols-X classes
+ * to control the number of columns on larger screens.
+ */
+.article-gallery {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .article-gallery.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .article-gallery.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Figure and caption styling for article images */
+.figure {
+  margin: 1.5rem 0;
+}
+.figure figcaption {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* --- Micro‑interactions and 3D tilt --- */
+/* Slightly elevate bento items on hover and enable smooth transformation for tilt effect */
+.bento-item {
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s, border-color 0.35s;
+  will-change: transform;
+}
+
+/* --- Related posts styling --- */
+.related-posts {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* ------------------- */
+/* RECOMMENDED SERVICES SECTION */
+/* ------------------- */
+/*
+ * A section used in blog articles to suggest complementary services
+ * based on the topic the reader is exploring. Uses a simple grid
+ * layout with two bento-style cards. The existing .bento-item styles
+ * ensure consistency with the services section, while this wrapper
+ * adds appropriate spacing and heading styling.
+ */
+.recommended-services {
+  padding: 4rem 0;
+}
+.recommended-services h2 {
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.recommended-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.recommended-grid .bento-item {
+  height: auto;
+}
+.related-posts h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.related-posts .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.related-posts .card {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-large);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.related-posts .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+.related-posts .card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--radius-medium);
+  margin-bottom: 1rem;
+}
+.related-posts .card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.related-posts .card p {
+  flex-grow: 1;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+.related-posts .card .reading-time {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.75rem;
+}
+.related-posts .card a {
+  align-self: flex-start;
+}
+
+/* --- Reading time label for blog cards --- */
+.blog-card .reading-time {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+
+/* Campos de formulário com ícones
+   Agrupa um ícone SVG e o campo de input para melhorar a usabilidade
+*/
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+/* Skip link visível apenas ao foco para acessibilidade */
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -1000px;
+  z-index: 3000;
+  background: var(--color-primary);
+  color: #0a0a0b;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-small);
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+/* Melhor contraste para botões primários no tema claro */
+.light-theme .btn-primary {
+  color: #0a0a0b;
+}
+
+/* Reduz animações em usuários que preferem menor movimento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+  }
+}
+.input-group .input-icon {
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+.input-group .input-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+.input-group input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 1rem 1rem;
+  color: inherit;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+}
+
