@@ -40,6 +40,37 @@
         .glow-btn { box-shadow: 0 0 25px rgba(204, 0, 0, 0.4); }
         .glow-btn:hover { box-shadow: 0 0 40px rgba(204, 0, 0, 0.8); }
 
+        /* Estilização Customizada para o Botão Hotmart para manter o padrão Alpha */
+        .hotmart-fb.hotmart__button-checkout {
+            background-color: #cc0000 !important;
+            border-radius: 0.75rem !important;
+            padding: 1.5rem !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.1em !important;
+            font-size: 1.5rem !important;
+            color: white !important;
+            border: none !important;
+            width: 100% !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            transition: all 0.3s !important;
+            box-shadow: 0 0 25px rgba(204, 0, 0, 0.4) !important;
+        }
+        .hotmart-fb.hotmart__button-checkout:hover {
+            background-color: #ff1a1a !important;
+            transform: scale(1.02) !important;
+            box-shadow: 0 0 40px rgba(204, 0, 0, 0.8) !important;
+        }
+        .hotmart-fb img {
+            display: none !important; /* Esconde a imagem padrão da Hotmart para usar o texto Alpha */
+        }
+        .hotmart-fb::after {
+            content: "QUERO DOMINAR AGORA"; /* Texto personalizado no botão */
+        }
+
         /* Floating WhatsApp Button */
         .float-wa {
             position: fixed;
@@ -67,6 +98,21 @@
             animation: fillBar 1.5s ease-out forwards;
         }
     </style>
+
+    <!-- Hotmart Widget Script -->
+    <script type="text/javascript">
+        function importHotmart(){ 
+            var imported = document.createElement('script'); 
+            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
+            document.head.appendChild(imported); 
+            var link = document.createElement('link'); 
+            link.rel = 'stylesheet'; 
+            link.type = 'text/css'; 
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
+            document.head.appendChild(link); 
+        } 
+        importHotmart(); 
+    </script> 
 </head>
 <body class="bg-alpha-dark text-gray-300 font-body antialiased selection:bg-alpha-red selection:text-white">
 
@@ -89,8 +135,8 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-[#1a0000] via-transparent to-transparent opacity-80 pointer-events-none"></div>
             </div>
 
-            <!-- Botão de Compra CTA 1 -->
-            <a href="#oferta" class="inline-block w-full md:w-auto bg-alpha-red hover:bg-alpha-redHover text-white font-heading font-black text-xl md:text-2xl py-5 px-10 rounded-lg uppercase tracking-widest transition-all transform hover:-translate-y-1 glow-btn animate-pulse">
+            <!-- Botão de Compra CTA 1 (Rola para a oferta para gerar valor) -->
+            <a href="#oferta" class="inline-block w-full md:w-auto bg-alpha-red hover:bg-alpha-redHover text-white font-heading font-black text-xl md:text-2xl py-5 px-10 rounded-lg uppercase tracking-widest transition-all transform hover:-translate-y-1 glow-btn">
                 Quero Dominar a Arte Agora
             </a>
             <p class="mt-4 text-sm text-gray-500 font-bold flex items-center justify-center gap-2">
@@ -179,7 +225,7 @@
         </div>
     </section>
 
-    <!-- PROVA SOCIAL (NOVO) -->
+    <!-- PROVA SOCIAL -->
     <section class="py-16 px-4 bg-[#0a0000] border-t border-alpha-border">
         <div class="max-w-5xl mx-auto">
             <h2 class="font-heading font-black text-3xl md:text-4xl text-center mb-4 text-white">Resultados <span class="text-alpha-red">Comprovados</span></h2>
@@ -205,7 +251,7 @@
         </div>
     </section>
 
-    <!-- OFFER SECTION COM URGÊNCIA (MODIFICADO) -->
+    <!-- OFFER SECTION -->
     <section id="oferta" class="py-16 px-4 bg-gradient-to-t from-[#1a0000] to-alpha-dark border-t border-alpha-border relative">
         <div class="max-w-3xl mx-auto text-center">
             
@@ -235,9 +281,10 @@
                 </div>
                 <p class="text-xs text-red-400 font-bold mb-8 text-right">87% das cópias promocionais já foram resgatadas hoje.</p>
 
-                <a href="https://wa.me/5527988643815?text=Quero%20comprar%20o%20E-book%20Protocolo%20Alpha" target="_blank" class="block w-full bg-green-600 hover:bg-green-500 text-white font-heading font-black text-2xl py-6 rounded-xl uppercase tracking-widest transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(37,211,102,0.4)] mb-4 animate-bounce">
-                    QUERO COMPRAR AGORA
-                </a>
+                <!-- BOTÃO HOTMART WIDGET -->
+                <div class="mb-4">
+                    <a onclick="return false;" href="https://pay.hotmart.com/H104694371N?checkoutMode=2" class="hotmart-fb hotmart__button-checkout"></a>
+                </div>
                 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-500">
                     <span class="flex items-center gap-1"><svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg> Pagamento Único</span>
@@ -250,22 +297,22 @@
         </div>
     </section>
 
-    <!-- FAQ (NOVO) -->
+    <!-- FAQ -->
     <section class="py-16 px-4 max-w-3xl mx-auto border-t border-alpha-border">
         <h2 class="font-heading font-black text-3xl text-center mb-10 text-white">Dúvidas Frequentes</h2>
         
         <div class="space-y-4">
             <div class="bg-alpha-card border border-gray-800 p-5 rounded-lg">
                 <h4 class="font-bold text-white text-lg mb-2">Como vou receber o material?</h4>
-                <p class="text-gray-400 text-sm">Imediatamente após a confirmação do pagamento, você receberá o E-book em formato PDF diretamente no seu e-mail e WhatsApp de forma 100% segura e sigilosa.</p>
+                <p class="text-gray-400 text-sm">Imediatamente após a confirmação do pagamento pela Hotmart, você receberá o acesso ao E-book no seu e-mail cadastrado de forma 100% segura e sigilosa.</p>
             </div>
             <div class="bg-alpha-card border border-gray-800 p-5 rounded-lg">
                 <h4 class="font-bold text-white text-lg mb-2">A compra é discreta? Vai aparecer na fatura?</h4>
-                <p class="text-gray-400 text-sm">Sim. Nossa plataforma de pagamentos é totalmente criptografada. Na fatura do seu cartão aparecerá apenas o nome do gateway de pagamento, sem nenhuma menção ao E-book.</p>
+                <p class="text-gray-400 text-sm">Sim. A Hotmart utiliza criptografia de ponta. Na fatura do seu cartão aparecerá apenas o nome "HOTMART", sem nenhuma menção ao conteúdo do livro.</p>
             </div>
             <div class="bg-alpha-card border border-gray-800 p-5 rounded-lg">
                 <h4 class="font-bold text-white text-lg mb-2">E se eu não gostar do conteúdo?</h4>
-                <p class="text-gray-400 text-sm">Você tem 7 dias de garantia incondicional. Se você ler e achar que não agregou em nada, basta enviar uma única mensagem e devolvemos cada centavo.</p>
+                <p class="text-gray-400 text-sm">Você tem 7 dias de garantia incondicional garantida pela Hotmart. Se você ler e não gostar, basta solicitar o reembolso na plataforma e devolvemos 100% do valor.</p>
             </div>
         </div>
     </section>
@@ -275,7 +322,7 @@
         <img src="https://cdn-icons-png.flaticon.com/512/1908/1908915.png" alt="Garantia" class="w-32 h-32 opacity-80 filter invert sepia saturate-200 hue-rotate-310">
         <div class="text-left">
             <h3 class="font-heading font-black text-2xl text-white mb-2">Risco Zero: Garantia de 7 Dias</h3>
-            <p class="text-gray-400">Se você aplicar as técnicas e não ver ela implorando por mais, basta nos mandar um e-mail que devolvemos 100% dos seus R$ 29,90. Sem perguntas. O risco é todo nosso.</p>
+            <p class="text-gray-400">Se você aplicar as técnicas e não ver ela implorando por mais, basta solicitar o reembolso que a Hotmart devolve 100% do seu investimento. O risco é todo nosso.</p>
         </div>
     </section>
 
@@ -284,7 +331,7 @@
         <div class="max-w-4xl mx-auto px-4">
             <p class="text-gray-500 font-bold mb-2">© 2026 O Protocolo Alpha. Todos os direitos reservados.</p>
             <p class="text-gray-600 text-sm mb-4">
-                Desenvolvido e distribuído por: <strong class="text-gray-400">M2 Estratégia Digital</strong> (m2estrategiadigital.com.br)
+                Desenvolvido e distribuído por: <strong class="text-gray-400">M2 Estratégia Digital</strong>
             </p>
             <div class="flex justify-center items-center gap-4 text-sm text-gray-500">
                 <a href="#" class="hover:text-alpha-red transition-colors">Termos de Uso</a>
@@ -295,7 +342,7 @@
         </div>
     </footer>
 
-    <!-- Botão Flutuante WhatsApp -->
+    <!-- Botão Flutuante WhatsApp (Dúvidas) -->
     <a href="https://wa.me/5527988643815?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida%20sobre%20o%20E-book%20Protocolo%20Alpha." target="_blank" class="float-wa" title="Fale conosco no WhatsApp">
         <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -303,7 +350,7 @@
         Dúvidas?
     </a>
 
-    <!-- Lógica do Temporizador de Urgência -->
+    <!-- Lógica do Temporizador -->
     <script>
         function startTimer(duration, display) {
             let timer = duration, minutes, seconds;
@@ -317,7 +364,7 @@
                 display.textContent = minutes + ":" + seconds;
 
                 if (--timer < 0) {
-                    timer = 0; // Para no 00:00 para causar pânico real
+                    timer = 0;
                 }
             }, 1000);
         }
