@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Protocolo Alpha - Domine a Arte</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        alpha: {
+                            dark: '#050505',
+                            card: '#121212',
+                            red: '#cc0000',
+                            redHover: '#ff1a1a',
+                            border: '#2a2a2a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #cc0000; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff1a1a; }
+        
+        .glow-text { text-shadow: 0 0 20px rgba(204, 0, 0, 0.6); }
+        .glow-btn { box-shadow: 0 0 25px rgba(204, 0, 0, 0.4); }
+        .glow-btn:hover { box-shadow: 0 0 40px rgba(204, 0, 0, 0.8); }
+
+        /* Floating WhatsApp Button */
+        .float-wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 50;
+            transition: transform 0.3s;
+        }
+        .float-wa:hover { transform: scale(1.05); }
+
+        /* Progress Bar Animation */
+        @keyframes fillBar {
+            from { width: 0%; }
+            to { width: 87%; }
+        }
+        .progress-fill {
+            animation: fillBar 1.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-alpha-dark text-gray-300 font-body antialiased selection:bg-alpha-red selection:text-white">
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-16 pb-12 px-4 md:px-0 text-center border-b border-alpha-border bg-gradient-to-b from-[#1a0000] to-alpha-dark">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-block py-1 px-3 rounded-full bg-alpha-red/20 text-alpha-red font-bold text-sm mb-6 border border-alpha-red/30 animate-pulse">
+                ⚠️ ALERTA: CONTEÚDO RESTRITO PARA HOMENS
+            </span>
+            <h1 class="font-heading font-black text-3xl md:text-5xl lg:text-6xl text-white uppercase tracking-tight mb-6 leading-tight">
+                Por que <span class="text-alpha-red glow-text">90% dos Caras</span> Falham na Cama (e Como Você Vai Deixar de Ser Um Deles <span class="border-b-4 border-alpha-red">HOJE</span>)
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl mx-auto">
+                O guia definitivo que revela o exato "Ritual de 7 Minutos" para fazer qualquer mulher arquear as costas, tremer e te olhar como um verdadeiro Deus na cama.
+            </p>
+
+            <!-- Imagem de Destaque / Capa do Livro -->
+            <div class="relative w-full max-w-sm mx-auto border border-alpha-border rounded-xl shadow-[0_0_40px_rgba(204,0,0,0.4)] flex items-center justify-center mb-10 overflow-hidden">
+                <img src="https://i.postimg.cc/DZdssSLr/Whats-App-Image-2026-02-28-at-16-27-27.jpg" alt="Capa do Livro Protocolo Alpha" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1a0000] via-transparent to-transparent opacity-80 pointer-events-none"></div>
+            </div>
+
+            <!-- Botão de Compra CTA 1 -->
+            <a href="#oferta" class="inline-block w-full md:w-auto bg-alpha-red hover:bg-alpha-redHover text-white font-heading font-black text-xl md:text-2xl py-5 px-10 rounded-lg uppercase tracking-widest transition-all transform hover:-translate-y-1 glow-btn animate-pulse">
+                Quero Dominar a Arte Agora
+            </a>
+            <p class="mt-4 text-sm text-gray-500 font-bold flex items-center justify-center gap-2">
+                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                Acesso Imediato e 100% Discreto
+            </p>
+        </div>
+    </section>
+
+    <!-- A VERDADE NUA E CRUA -->
+    <section class="py-16 px-4 max-w-4xl mx-auto">
+        <h2 class="font-heading font-black text-3xl md:text-4xl text-center mb-10 text-white">
+            A Verdade Nua e Crua: <span class="text-alpha-red">Ela Finge Pra Você?</span>
+        </h2>
+        <div class="bg-alpha-card border border-alpha-border rounded-xl p-8 md:p-10 shadow-xl text-lg leading-relaxed relative">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-alpha-red to-transparent opacity-50"></div>
+            <p class="mb-6">Você já reparou que a maioria finge que gosta? Ela geme um pouco, mexe o quadril, fala "tá bom, amor"... e depois te pede pra terminar logo porque a sua abordagem parece um cachorro lambendo sorvete derretido.</p>
+            <p class="mb-6 font-bold text-white text-xl border-l-4 border-alpha-red pl-4">Isso não é problema dela. É problema seu.</p>
+            <p class="mb-6">Dar prazer não é "fazer um favor". É dominar como um deus. É mostrar para ela que você sabe exatamente onde fica o botãozinho que faz o cérebro dela desligar antes mesmo de você tocar.</p>
+            <p>Se você ainda acha que "mulher gosta de carinho", feche esta página agora. Volte para a sua rotina Nutela. Mas se você quer fazer ela agarrar o lençol e xingar o seu nome... <strong class="text-alpha-red">você está no lugar certo.</strong></p>
+        </div>
+    </section>
+
+    <!-- NUTELA VS ALPHA -->
+    <section class="py-16 px-4 bg-[#0a0000] border-y border-alpha-border">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-heading font-black text-3xl md:text-4xl text-center mb-12 text-white">De Qual Lado <span class="text-alpha-red">Você Está?</span></h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Nutela -->
+                <div class="bg-alpha-card/50 border border-gray-700 rounded-xl p-8 opacity-80">
+                    <h3 class="font-heading font-bold text-2xl text-gray-500 mb-6 uppercase border-b border-gray-700 pb-4">O Cara "Nutela"</h3>
+                    <ul class="space-y-5 text-gray-400">
+                        <li class="flex items-start"><span class="text-red-500 mr-3 text-xl">❌</span> Chega afobado e sem estratégia.</li>
+                        <li class="flex items-start"><span class="text-red-500 mr-3 text-xl">❌</span> Fica 40 segundos, cansa e já quer meter.</li>
+                        <li class="flex items-start"><span class="text-red-500 mr-3 text-xl">❌</span> Pergunta toda hora "tá gostoso?" demonstrando insegurança.</li>
+                    </ul>
+                </div>
+
+                <!-- Alpha -->
+                <div class="bg-alpha-card border-2 border-alpha-red rounded-xl p-8 shadow-[0_0_20px_rgba(204,0,0,0.2)] transform md:-translate-y-4">
+                    <h3 class="font-heading font-black text-2xl text-white mb-6 uppercase border-b border-alpha-red pb-4">O Deus Alpha</h3>
+                    <ul class="space-y-5 text-gray-200">
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-xl">✅</span> Olha com confiança e mentalidade de predador.</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-xl">✅</span> Domina o "Mapa do Tesão" (Clitóris, Ponto G, Esponja).</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-xl">✅</span> Controla o ritmo, a respiração e vicia a mente dela.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O QUE VOCÊ VAI APRENDER -->
+    <section class="py-16 px-4 max-w-5xl mx-auto">
+        <h2 class="font-heading font-black text-3xl md:text-4xl text-center mb-12 text-white">O Que Você Vai Descobrir no <span class="text-alpha-red">E-book</span></h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-alpha-card border border-alpha-border p-6 rounded-lg flex items-start hover:border-alpha-red transition-colors duration-300">
+                <div class="text-alpha-red text-4xl mr-4">🗺️</div>
+                <div>
+                    <h4 class="font-bold text-white text-xl mb-2">O Mapa do Tesão</h4>
+                    <p class="text-gray-400 text-sm">A anatomia real. Esqueça o pornô. Aprenda exatamente onde e como tocar para ativar os gatilhos profundos de prazer que 99% dos homens ignoram.</p>
+                </div>
+            </div>
+            <div class="bg-alpha-card border border-alpha-border p-6 rounded-lg flex items-start hover:border-alpha-red transition-colors duration-300">
+                <div class="text-alpha-red text-4xl mr-4">🧠</div>
+                <div>
+                    <h4 class="font-bold text-white text-xl mb-2">Mindset Alpha</h4>
+                    <p class="text-gray-400 text-sm">Técnica sem mindset é inútil. Aprenda o segredo psicológico para entrar na situação com confiança divina e dominância absoluta.</p>
+                </div>
+            </div>
+            <div class="bg-alpha-card border border-alpha-border p-6 rounded-lg flex items-start hover:border-alpha-red transition-colors duration-300">
+                <div class="text-alpha-red text-4xl mr-4">👅</div>
+                <div>
+                    <h4 class="font-bold text-white text-xl mb-2">O Alfabeto Evoluído</h4>
+                    <p class="text-gray-400 text-sm">A técnica base (e os combos secretos) que já deixa ela viciada e implorando por mais. O controle total do ritmo.</p>
+                </div>
+            </div>
+            <div class="bg-alpha-card border border-alpha-border p-6 rounded-lg flex items-start hover:border-alpha-red transition-colors duration-300">
+                <div class="text-alpha-red text-4xl mr-4">⏱️</div>
+                <div>
+                    <h4 class="font-bold text-white text-xl mb-2">O Ritual de 7 Minutos</h4>
+                    <p class="text-gray-400 text-sm">O protocolo final validado, passo a passo, do aquecimento ao pico absoluto, que transforma qualquer mulher na sua devota particular.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL (NOVO) -->
+    <section class="py-16 px-4 bg-[#0a0000] border-t border-alpha-border">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-heading font-black text-3xl md:text-4xl text-center mb-4 text-white">Resultados <span class="text-alpha-red">Comprovados</span></h2>
+            <p class="text-center text-gray-400 mb-12">O que os homens que já aplicaram o protocolo estão dizendo (identidades preservadas por sigilo):</p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-alpha-card border border-gray-800 p-6 rounded-lg relative">
+                    <div class="text-yellow-500 mb-3">★★★★★</div>
+                    <p class="text-gray-300 text-sm italic mb-4">"Cara, eu achava que mandava bem até ler isso. Apliquei o combo que ensina na página 16 e minha namorada ficou de pernas bambas. O jogo virou 100%."</p>
+                    <p class="text-white font-bold text-sm">- R. M., 28 anos</p>
+                </div>
+                <div class="bg-alpha-card border border-gray-800 p-6 rounded-lg relative">
+                    <div class="text-yellow-500 mb-3">★★★★★</div>
+                    <p class="text-gray-300 text-sm italic mb-4">"O Ritual de 7 minutos é bizarro. Fiz exatamente como no e-book... a mulher não parava de tremer e falar meu nome. Dinheiro mais bem gasto da vida."</p>
+                    <p class="text-white font-bold text-sm">- Carlos F., 34 anos</p>
+                </div>
+                <div class="bg-alpha-card border border-gray-800 p-6 rounded-lg relative">
+                    <div class="text-yellow-500 mb-3">★★★★★</div>
+                    <p class="text-gray-300 text-sm italic mb-4">"A parte do mindset me salvou. Eu era muito afobado. Aprender a controlar a respiração dela mudou a minha autoconfiança no quarto. Recomendo."</p>
+                    <p class="text-white font-bold text-sm">- D. S., 41 anos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFER SECTION COM URGÊNCIA (MODIFICADO) -->
+    <section id="oferta" class="py-16 px-4 bg-gradient-to-t from-[#1a0000] to-alpha-dark border-t border-alpha-border relative">
+        <div class="max-w-3xl mx-auto text-center">
+            
+            <div class="bg-red-900/20 border border-red-500/50 text-red-400 p-3 rounded-lg inline-block mb-6 font-bold flex items-center justify-center gap-3 mx-auto">
+                <svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                ESTA OFERTA EXCLUSIVA EXPIRA EM: <span id="countdown" class="text-white font-black text-xl ml-1">15:00</span>
+            </div>
+
+            <h2 class="font-heading font-black text-4xl md:text-5xl text-white mb-6">Chegou a Hora de <span class="text-alpha-red">Mudar o Jogo</span></h2>
+            
+            <div class="bg-alpha-card border-2 border-alpha-red rounded-2xl p-8 md:p-12 shadow-[0_0_40px_rgba(204,0,0,0.3)] relative overflow-hidden mt-8">
+                <!-- Tag Desconto -->
+                <div class="absolute top-0 right-0 bg-alpha-red text-white font-bold py-1 px-10 transform translate-x-8 translate-y-4 rotate-45 shadow-lg">
+                    70% OFF
+                </div>
+
+                <p class="text-gray-400 line-through text-2xl mb-2">De R$ 97,00 por apenas:</p>
+                <div class="flex justify-center items-start mb-6">
+                    <span class="text-2xl font-bold text-alpha-red mt-2">R$</span>
+                    <span class="text-7xl font-black text-white tracking-tighter mx-2 glow-text">29</span>
+                    <span class="text-3xl font-bold text-alpha-red mt-2">,90</span>
+                </div>
+                
+                <!-- Barra de Escassez -->
+                <div class="w-full bg-gray-800 rounded-full h-3 mb-2 overflow-hidden border border-gray-700">
+                    <div class="bg-gradient-to-r from-red-600 to-alpha-red h-3 rounded-full progress-fill" style="width: 0%"></div>
+                </div>
+                <p class="text-xs text-red-400 font-bold mb-8 text-right">87% das cópias promocionais já foram resgatadas hoje.</p>
+
+                <a href="https://wa.me/5527988643815?text=Quero%20comprar%20o%20E-book%20Protocolo%20Alpha" target="_blank" class="block w-full bg-green-600 hover:bg-green-500 text-white font-heading font-black text-2xl py-6 rounded-xl uppercase tracking-widest transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(37,211,102,0.4)] mb-4 animate-bounce">
+                    QUERO COMPRAR AGORA
+                </a>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-500">
+                    <span class="flex items-center gap-1"><svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg> Pagamento Único</span>
+                    <span class="hidden sm:inline">|</span>
+                    <span class="flex items-center gap-1"><svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg> Compra Segura</span>
+                    <span class="hidden sm:inline">|</span>
+                    <span class="flex items-center gap-1"><svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg> Acesso Discreto</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (NOVO) -->
+    <section class="py-16 px-4 max-w-3xl mx-auto border-t border-alpha-border">
+        <h2 class="font-heading font-black text-3xl text-center mb-10 text-white">Dúvidas Frequentes</h2>
+        
+        <div class="space-y-4">
+            <div class="bg-alpha-card border border-gray-800 p-5 rounded-lg">
+                <h4 class="font-bold text-white text-lg mb-2">Como vou receber o material?</h4>
+                <p class="text-gray-400 text-sm">Imediatamente após a confirmação do pagamento, você receberá o E-book em formato PDF diretamente no seu e-mail e WhatsApp de forma 100% segura e sigilosa.</p>
+            </div>
+            <div class="bg-alpha-card border border-gray-800 p-5 rounded-lg">
+                <h4 class="font-bold text-white text-lg mb-2">A compra é discreta? Vai aparecer na fatura?</h4>
+                <p class="text-gray-400 text-sm">Sim. Nossa plataforma de pagamentos é totalmente criptografada. Na fatura do seu cartão aparecerá apenas o nome do gateway de pagamento, sem nenhuma menção ao E-book.</p>
+            </div>
+            <div class="bg-alpha-card border border-gray-800 p-5 rounded-lg">
+                <h4 class="font-bold text-white text-lg mb-2">E se eu não gostar do conteúdo?</h4>
+                <p class="text-gray-400 text-sm">Você tem 7 dias de garantia incondicional. Se você ler e achar que não agregou em nada, basta enviar uma única mensagem e devolvemos cada centavo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GARANTIA -->
+    <section class="py-12 px-4 max-w-4xl mx-auto text-center flex flex-col md:flex-row items-center justify-center gap-8 border-t border-alpha-border">
+        <img src="https://cdn-icons-png.flaticon.com/512/1908/1908915.png" alt="Garantia" class="w-32 h-32 opacity-80 filter invert sepia saturate-200 hue-rotate-310">
+        <div class="text-left">
+            <h3 class="font-heading font-black text-2xl text-white mb-2">Risco Zero: Garantia de 7 Dias</h3>
+            <p class="text-gray-400">Se você aplicar as técnicas e não ver ela implorando por mais, basta nos mandar um e-mail que devolvemos 100% dos seus R$ 29,90. Sem perguntas. O risco é todo nosso.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-10 text-center border-t border-alpha-border">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="text-gray-500 font-bold mb-2">© 2026 O Protocolo Alpha. Todos os direitos reservados.</p>
+            <p class="text-gray-600 text-sm mb-4">
+                Desenvolvido e distribuído por: <strong class="text-gray-400">M2 Estratégia Digital</strong> (m2estrategiadigital.com.br)
+            </p>
+            <div class="flex justify-center items-center gap-4 text-sm text-gray-500">
+                <a href="#" class="hover:text-alpha-red transition-colors">Termos de Uso</a>
+                <span>|</span>
+                <a href="#" class="hover:text-alpha-red transition-colors">Políticas de Privacidade</a>
+            </div>
+            <p class="mt-6 text-xs text-gray-700 max-w-2xl mx-auto">Este site não faz parte do website do Facebook ou do Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira. FACEBOOK é uma marca comercial da FACEBOOK, Inc.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5527988643815?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida%20sobre%20o%20E-book%20Protocolo%20Alpha." target="_blank" class="float-wa" title="Fale conosco no WhatsApp">
+        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Dúvidas?
+    </a>
+
+    <!-- Lógica do Temporizador de Urgência -->
+    <script>
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0; // Para no 00:00 para causar pânico real
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let fifteenMinutes = 60 * 15,
+                display = document.querySelector('#countdown');
+            startTimer(fifteenMinutes, display);
+        };
+    </script>
+</body>
+</html>
